@@ -16,17 +16,20 @@ Accessibility, Best Practices, SEO). See `CLAUDE.md` for the rules and quality b
 - [x] `.env.example` + README + confirm `.env*` gitignored
 - [x] `BUILD_PLAN.md`
 
-**Layout shell & infra (next):**
-- [ ] `next/font` Inter wired in `app/layout.tsx` (no layout shift)
-- [ ] `<Header>` + `<Footer>` + `<ThemeToggle>` (cookie-based theme, no flash)
-- [ ] Homepage scaffold — hero + category grid driven by `data/tools.ts`
-- [ ] `<ToolLayout>` (page wrapper: heading, widget slot, SeoExplainer, JsonLd, CTA)
-- [ ] `<AgencyCTA>` + tech-stack marquee from `data/agency.ts`
-- [ ] Shared primitives: `<ToolCard>`, `<CopyButton>`, `<SeoExplainer>`, `<JsonLd>`
-- [ ] `sitemap.ts` + `robots.ts` (derive from registry)
-- [ ] GA via `NEXT_PUBLIC_GA_ID` (no-op when blank)
-- [ ] `app/api/contact/route.ts` — Resend Route Handler (the only server code)
-- [ ] **Gate:** build passes · no console errors · four-pillar self-check
+**Layout shell & infra (done):**
+- [x] `next/font` Inter wired in `app/layout.tsx` (no layout shift)
+- [x] `<Header>` + `<Footer>` + `<ThemeToggle>` (cookie-based theme, no flash via pre-paint inline script)
+- [x] Homepage scaffold — hero + searchable/filterable category grid driven by `data/tools.ts`
+- [x] `<ToolLayout>` (page wrapper: heading, widget slot, SeoExplainer, JsonLd, CTA)
+- [x] `<AgencyCTA>` + tech-stack marquee from `data/agency.ts`
+- [x] Shared primitives: `<ToolCard>`, `<CopyButton>`, `<SeoExplainer>`, `<JsonLd>`, `<Logo>`
+- [x] `/about` + `/contact` pages; contact form POSTs to the route with mailto fallback
+- [x] Placeholder `/tools/[slug]` (generateStaticParams + generateMetadata, "coming soon" body)
+- [x] `sitemap.ts` (25 URLs) + `robots.ts` (derive from registry)
+- [x] Build-generated `app/opengraph-image.tsx` (sitewide OG/Twitter image)
+- [x] GA via `NEXT_PUBLIC_GA_ID` (no-op when blank)
+- [x] `app/api/contact/route.ts` — Resend Route Handler (the only server code)
+- [x] **Gate:** build passes · no type/lint/console errors · four-pillar self-check
 
 > Read `node_modules/next/dist/docs/` for Metadata API, sitemap/robots, Route Handlers,
 > `next/font`, and dynamic import before writing each.

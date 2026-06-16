@@ -195,6 +195,18 @@ body::before {
   background-size: 48px 48px;
 }
 
+/* Tech-stack marquee. Static by default (motion added under reduced-motion gate). */
+.marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+}
+
 /* ----------------------------------------------------------------------------
    Motion — every animation/transition gated behind reduced-motion preference
    -------------------------------------------------------------------------- */
@@ -210,6 +222,17 @@ body::before {
   }
   .animated-grid {
     animation: vibe-grid-pan 20s linear infinite;
+  }
+  .marquee__track {
+    animation: vibe-marquee 38s linear infinite;
+  }
+  .marquee:hover .marquee__track {
+    animation-play-state: paused;
+  }
+
+  @keyframes vibe-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
 
   @keyframes vibe-pulse {
