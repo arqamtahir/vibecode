@@ -1,26 +1,223 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================================
+   Vibecode / AlgoCrew design tokens
+   Dark is the default. Light is opt-in via [data-theme="light"] on <html>.
+   NO hardcoded colors anywhere else in the codebase — reference these vars.
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  /* Brand */
+  --brand-cyan: #06c8e8;
+  --brand-blue: #2563eb;
+  --brand-purple: #7c3aed;
+  --gradient-brand: linear-gradient(135deg, var(--brand-cyan), var(--brand-blue));
+  --accent: var(--brand-cyan);
+
+  /* Surfaces */
+  --bg-page: #0b1120;
+  --bg-elevated: #111827;
+  --glass-bg: rgba(255, 255, 255, 0.032);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --glass-border-hover: var(--brand-cyan);
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #8b97a8;
+
+  /* Selection / scrollbar */
+  --selection-bg: rgba(6, 200, 232, 0.28);
+  --selection-fg: #f1f5f9;
 }
 
+[data-theme="light"] {
+  --bg-page: #f4f6fb;
+  --bg-elevated: #ffffff;
+  --glass-bg: rgba(8, 12, 20, 0.025);
+  --glass-border: rgba(8, 12, 20, 0.1);
+  --glass-border-hover: #007799;
+  --accent: #007799;
+
+  --text-primary: #080c14;
+  --text-secondary: #3a4759;
+  --text-muted: #5a6675;
+
+  --selection-bg: rgba(0, 119, 153, 0.22);
+  --selection-fg: #080c14;
+}
+
+/* Expose tokens to Tailwind v4 utilities (e.g. bg-page, text-primary) */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-page: var(--bg-page);
+  --color-elevated: var(--bg-elevated);
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-purple: var(--brand-purple);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ----------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+html {
+  color-scheme: dark;
+}
+[data-theme="light"] {
+  color-scheme: light;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  position: relative;
+}
+
+/* Subtle noise overlay (purely decorative, non-interactive) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+/* Thin cyan scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 9999px;
+}
+
+/* Visible focus ring for keyboard users (WCAG 2.4.7) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ----------------------------------------------------------------------------
+   Utilities
+   -------------------------------------------------------------------------- */
+.gradient-text {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.glass-card:hover {
+  border-color: var(--glass-border-hover);
+}
+
+.premium-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+.premium-badge::before {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+.glow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: var(--gradient-brand);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 0 0 rgba(6, 200, 232, 0);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.glow-button:hover {
+  box-shadow: 0 8px 30px rgba(6, 200, 232, 0.35);
+}
+
+.section-padding {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}
+
+.animated-grid {
+  background-image:
+    linear-gradient(var(--glass-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--glass-border) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ----------------------------------------------------------------------------
+   Motion — every animation/transition gated behind reduced-motion preference
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .premium-badge::before {
+    animation: vibe-pulse 1.8s ease-in-out infinite;
+  }
+  .glow-button:hover {
+    transform: translateY(-2px);
+  }
+  .glass-card:hover {
+    transform: translateY(-2px);
+  }
+  .animated-grid {
+    animation: vibe-grid-pan 20s linear infinite;
+  }
+
+  @keyframes vibe-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+  @keyframes vibe-grid-pan {
+    from { background-position: 0 0; }
+    to { background-position: 48px 48px; }
+  }
 }
