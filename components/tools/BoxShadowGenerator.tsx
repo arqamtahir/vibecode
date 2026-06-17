@@ -29,7 +29,7 @@ const makeLayer = (id: string): EditableLayer => ({
   y: 8,
   blur: 24,
   spread: -4,
-  hex: "#06c8e8",
+  hex: "#6366f1",
   alpha: 0.45,
   inset: false,
 });

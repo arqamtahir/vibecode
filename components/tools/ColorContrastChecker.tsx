@@ -12,7 +12,7 @@ function normalizeHex(value: string): string {
 }
 
 function PassFail({ pass }: { pass: boolean }) {
-  const tone = pass ? "var(--brand-cyan)" : "var(--brand-purple)";
+  const tone = pass ? "var(--accent)" : "var(--brand-purple)";
   return (
     <span
       className="rounded-full border px-2.5 py-0.5 text-xs font-medium"

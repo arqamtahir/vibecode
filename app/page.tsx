@@ -20,30 +20,55 @@ export default function HomePage() {
       <JsonLd data={jsonLd} />
 
       {/* Hero */}
-      <section className="relative overflow-hidden px-4 pt-20 pb-12 sm:px-6">
+      <section className="relative px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
+        {/* Subtle ambient glow — behind content, reduced-motion safe */}
         <div
-          className="animated-grid pointer-events-none absolute inset-0 -z-10 opacity-40"
+          className="hero-glow pointer-events-none absolute inset-0 -z-10"
           aria-hidden="true"
         />
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="premium-badge mx-auto w-fit">22 tools · 100% client-side · $0</p>
-          <h1 className="mt-6 text-4xl font-bold leading-tight text-primary sm:text-6xl">
-            Developer tools that{" "}
-            <span className="gradient-text">never leave your browser</span>
-          </h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-secondary">
-            Format, convert, generate, and debug - instantly and privately. No signup, no
-            uploads, no tracking. Everything runs locally and works offline.
+
+        <div className="mx-auto max-w-4xl">
+          {/* Eyebrow */}
+          <p className="text-sm font-medium tracking-widest text-[var(--accent)] uppercase">
+            By AlgoCrew
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+
+          {/* Headline */}
+          <h1 className="mt-5 text-5xl font-bold leading-[1.08] tracking-tight text-primary sm:text-7xl">
+            Developer tools.<br />
+            <span className="gradient-text">Private by design.</span>
+          </h1>
+
+          {/* Sub */}
+          <p className="mt-6 max-w-xl text-lg leading-relaxed text-secondary sm:text-xl">
+            22 utilities — formatters, converters, generators — that run entirely
+            in your browser. No signup, no uploads, no telemetry.
+          </p>
+
+          {/* Stats row */}
+          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+            {[
+              { value: "22", label: "free tools" },
+              { value: "100%", label: "client-side" },
+              { value: "$0", label: "forever" },
+            ].map((s) => (
+              <div key={s.label} className="flex items-baseline gap-2">
+                <dt className="text-2xl font-semibold tracking-tight text-primary">{s.value}</dt>
+                <dd className="text-sm text-muted">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
+
+          {/* CTAs */}
+          <div className="mt-10 flex flex-wrap gap-3">
             <a href="#tools-heading" className="glow-button">
               Browse all tools
             </a>
             <Link
               href="/about"
-              className="inline-flex items-center rounded-full border border-[var(--glass-border)] px-6 py-3 font-medium text-primary transition-colors hover:border-[var(--accent)]"
+              className="inline-flex items-center rounded-full border border-[var(--glass-border)] px-6 py-3 text-sm font-medium text-secondary transition-colors hover:border-[var(--accent)] hover:text-primary"
             >
-              Why Vibecode?
+              About Vibecode
             </Link>
           </div>
         </div>

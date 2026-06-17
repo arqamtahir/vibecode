@@ -14,7 +14,7 @@ const statusLabel: Record<JwtStatus, string> = {
 function StatusBadge({ status }: { status: JwtStatus }) {
   const tone =
     status === "valid"
-      ? "var(--brand-cyan)"
+      ? "var(--accent)"
       : status === "expired" || status === "not-yet-valid"
         ? "var(--brand-purple)"
         : "var(--text-muted)";
