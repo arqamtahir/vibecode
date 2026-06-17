@@ -57,7 +57,7 @@ export function HomeToolGrid({ tools }: { tools: Tool[] }) {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 22 tools — e.g. JSON, regex, gradient…"
+              placeholder="Search 22 tools - e.g. JSON, regex, gradient…"
               className="w-full rounded-xl border border-[var(--glass-border)] [background:var(--bg-elevated)] px-4 py-3 text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
             />
           </div>

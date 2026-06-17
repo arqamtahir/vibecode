@@ -70,7 +70,7 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <div role="status" aria-live="polite" className="glass-card p-8 text-center">
-        <h2 className="text-xl font-bold text-primary">Thanks — message sent!</h2>
+        <h2 className="text-xl font-bold text-primary">Thanks - message sent!</h2>
         <p className="mt-2 text-secondary">
           We&apos;ve received your message and will reply to your email shortly.
         </p>

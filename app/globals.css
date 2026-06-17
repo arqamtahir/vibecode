@@ -3,7 +3,7 @@
 /* ============================================================================
    Vibecode / AlgoCrew design tokens
    Dark is the default. Light is opt-in via [data-theme="light"] on <html>.
-   NO hardcoded colors anywhere else in the codebase — reference these vars.
+   NO hardcoded colors anywhere else in the codebase - reference these vars.
    ========================================================================== */
 
 :root,
@@ -188,6 +188,26 @@ body::before {
   }
 }
 
+/* Minimal prose styles for the Markdown → HTML preview (no @tailwindcss/typography needed). */
+.md-preview h1 { font-size: 1.875rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; }
+.md-preview h2 { font-size: 1.5rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; }
+.md-preview h3 { font-size: 1.25rem; font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; }
+.md-preview p  { margin-top: 0.5rem; margin-bottom: 0.5rem; line-height: 1.65; }
+.md-preview ul { list-style: disc; padding-left: 1.5rem; margin: 0.5rem 0; }
+.md-preview ol { list-style: decimal; padding-left: 1.5rem; margin: 0.5rem 0; }
+.md-preview li { margin: 0.25rem 0; }
+.md-preview a  { color: var(--accent); text-decoration: underline; }
+.md-preview code { background: var(--bg-elevated); border-radius: 3px; padding: 0.1em 0.35em; font-family: monospace; font-size: 0.875em; }
+.md-preview pre { background: var(--bg-elevated); border-radius: 8px; padding: 1rem; overflow-x: auto; margin: 0.75rem 0; }
+.md-preview pre code { background: none; padding: 0; }
+.md-preview blockquote { border-left: 3px solid var(--glass-border); padding-left: 1rem; color: var(--text-secondary); margin: 0.75rem 0; }
+.md-preview table { border-collapse: collapse; width: 100%; margin: 0.75rem 0; }
+.md-preview th, .md-preview td { border: 1px solid var(--glass-border); padding: 0.4rem 0.75rem; text-align: left; }
+.md-preview th { background: var(--bg-elevated); font-weight: 600; }
+.md-preview hr { border: none; border-top: 1px solid var(--glass-border); margin: 1rem 0; }
+.md-preview strong { font-weight: 700; }
+.md-preview em { font-style: italic; }
+
 .animated-grid {
   background-image:
     linear-gradient(var(--glass-border) 1px, transparent 1px),
@@ -208,7 +228,7 @@ body::before {
 }
 
 /* ----------------------------------------------------------------------------
-   Motion — every animation/transition gated behind reduced-motion preference
+   Motion - every animation/transition gated behind reduced-motion preference
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
   .premium-badge::before {

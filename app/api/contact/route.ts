@@ -1,5 +1,5 @@
 /**
- * Contact form Route Handler — the ONLY server code in Vibecode.
+ * Contact form Route Handler - the ONLY server code in Vibecode.
  *
  * Sends an email via Resend's REST API using credentials from the environment.
  * Secrets are read from process.env and never hardcoded or committed.

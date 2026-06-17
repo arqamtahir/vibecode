@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — 22 Free Client-Side Developer Tools`,
+    default: `${siteConfig.name} - 22 Free Client-Side Developer Tools`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: siteConfig.locale,
     url: siteConfig.url,
-    title: `${siteConfig.name} — 22 Free Client-Side Developer Tools`,
+    title: `${siteConfig.name} - 22 Free Client-Side Developer Tools`,
     description: siteConfig.description,
     // og:image / twitter:image are auto-emitted by app/opengraph-image.tsx.
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: siteConfig.twitterHandle,
     creator: siteConfig.twitterHandle,
-    title: `${siteConfig.name} — 22 Free Client-Side Developer Tools`,
+    title: `${siteConfig.name} - 22 Free Client-Side Developer Tools`,
     description: siteConfig.description,
   },
   robots: { index: true, follow: true },
@@ -61,7 +61,7 @@ export default function RootLayout({
       className={`${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Applies the persisted theme before first paint — no flash, no hydration error. */}
+        {/* Applies the persisted theme before first paint - no flash, no hydration error. */}
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <a
           href="#main-content"

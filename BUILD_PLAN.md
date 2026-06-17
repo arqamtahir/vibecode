@@ -37,42 +37,43 @@ Accessibility, Best Practices, SEO). See `CLAUDE.md` for the rules and quality b
 ---
 
 ## Phase 1 — Developer Utilities (6 tools)
-- [ ] JSON Formatter & Validator
-- [ ] JSON → TypeScript
-- [ ] JWT Decoder
-- [ ] Base64 Encoder / Decoder
-- [ ] UUID Generator
-- [ ] Cron Expression Builder
-- [ ] **Gate:** build passes · no console errors · four-pillar self-check
+- [x] JSON Formatter & Validator — format/minify, line+column parse errors with caret
+- [x] JSON → TypeScript — nested objects, array merging, optional/union/null handling
+- [x] JWT Decoder — header+payload, human exp/iat/nbf, valid/expired badge, "not verified" note
+- [x] Base64 Encoder / Decoder — text + file input, graceful invalid handling, UTF-8 safe
+- [x] UUID Generator — v4, single + bulk (count), copy one or all
+- [x] Cron Expression Builder — visual field builders + plain-English description
+- [x] Pure logic in `/lib/tools/*`, widgets in `/components/tools/*`, dynamic-imported per route
+- [x] **Gate:** build + typecheck + lint clean · all 6 routes 200, no console errors · four-pillar self-check
 
 ## Phase 2 — Frontend & Web (6 tools)
-- [ ] CSS Gradient Generator
-- [ ] Box-Shadow Generator
-- [ ] Color Contrast Checker
-- [ ] SVG → JSX
-- [ ] Favicon Generator
-- [ ] Meta Tag & OG Previewer
-- [ ] **Gate:** build passes · no console errors · four-pillar self-check
+- [x] CSS Gradient Generator — linear/radial, add/remove/reposition stops, angle, live preview
+- [x] Box-Shadow Generator — stacked layers (x/y/blur/spread/color/opacity/inset), live sample
+- [x] Color Contrast Checker — ratio + WCAG AA/AAA × normal/large, palette suggestion, live preview
+- [x] SVG → JSX — camelCase attrs, class→className, style objects, optional component wrapper
+- [x] Favicon Generator — canvas resize, preview, client-side ZIP via dynamic-imported fflate
+- [x] Meta Tag & OG Previewer — Google/Twitter/Facebook live cards + copy-ready tags
+- [x] **Gate:** build + typecheck + lint clean · 6 routes 200, no console errors · fflate code-split · four-pillar self-check
 
 ## Phase 3 — AI & Vibecoding (4 tools)
-- [ ] Token Counter & Cost Estimator
-- [ ] Prompt Template Builder
-- [ ] .env Example Generator
-- [ ] Regex Tester & Explainer
-- [ ] **Gate:** build passes · no console errors · four-pillar self-check
+- [x] Token Counter & Cost Estimator — dynamic-imported gpt-tokenizer, char/word counts, editable pricing presets
+- [x] Prompt Template Builder — {{var}} auto-detect, live render, cookie save/load, JSON export/import
+- [x] .env Example Generator — blanks values, keeps keys/comments/order, flags secret-like keys, in-browser only
+- [x] Regex Tester & Explainer — live highlight + groups, token-by-token explanation, Web Worker + timeout guard
+- [x] **Gate:** build + typecheck + lint clean · 4 routes 200, no console errors · tokenizer (1.9MB) is a pure dynamic import (absent from all page HTML) · four-pillar self-check
 
 ## Phase 4 — Converters & Formatters (6 tools)
-- [ ] Case Converter
-- [ ] Markdown → HTML
-- [ ] CSV → JSON
-- [ ] Timestamp / Epoch Converter
-- [ ] Image Compressor
-- [ ] QR Code Generator
-- [ ] **Gate:** build passes · no console errors · four-pillar self-check
+- [x] Case Converter
+- [x] Markdown → HTML
+- [x] CSV → JSON
+- [x] Timestamp / Epoch Converter
+- [x] Image Compressor
+- [x] QR Code Generator
+- [x] **Gate:** build passes · no console errors · four-pillar self-check
 
 ## Phase 5 — Audit pass
-- [ ] Lighthouse 100/100 × 4 on homepage + a representative tool from each category
-- [ ] Full WCAG 2.1 AA accessibility sweep (keyboard, focus, aria-live, contrast)
-- [ ] SEO sweep — metadata, canonicals, OG/Twitter, JSON-LD, sitemap, robots
-- [ ] Best-practices sweep — no console errors, HTTPS links, image aspect ratios
-- [ ] Bundle check — heavy libs lazy-loaded, shared JS lean
+- [x] Lighthouse 100/100 × 4 on homepage + a representative tool from each category
+- [x] Full WCAG 2.1 AA accessibility sweep (keyboard, focus, aria-live, contrast)
+- [x] SEO sweep — metadata, canonicals, OG/Twitter, JSON-LD, sitemap, robots
+- [x] Best-practices sweep — no console errors, HTTPS links, image aspect ratios
+- [x] Bundle check — heavy libs lazy-loaded, shared JS lean

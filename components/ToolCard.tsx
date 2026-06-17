@@ -6,7 +6,7 @@ export function ToolCard({ tool }: { tool: Tool }) {
   return (
     <Link
       href={`/tools/${tool.slug}`}
-      className="glass-card group flex h-full flex-col p-5 focus-visible:outline-none"
+      className="glass-card group flex h-full flex-col p-5 focus-visible:outline-2 focus-visible:outline-[var(--accent)] focus-visible:outline-offset-2"
     >
       <span className="text-xs font-medium uppercase tracking-wide text-muted">
         {tool.category}

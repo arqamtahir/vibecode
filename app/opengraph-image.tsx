@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 // Sitewide Open Graph / Twitter share image, generated at build time (static).
-export const alt = "Vibecode — 22 free client-side developer tools";
+export const alt = "Vibecode - 22 free client-side developer tools";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

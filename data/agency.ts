@@ -1,5 +1,5 @@
 /**
- * AlgoCrew agency data — powers the CTA blocks and the tech-stack marquee.
+ * AlgoCrew agency data - powers the CTA blocks and the tech-stack marquee.
  * Vibecode is a lead-gen funnel for AlgoCrew; these are the conversion assets.
  */
 
@@ -7,7 +7,7 @@
 export const agencyUrls = {
   /** Primary brand link. */
   home: "https://algocrew.io",
-  /** CTA target — where we send qualified leads. */
+  /** CTA target - where we send qualified leads. */
   contact: "https://algocrew.io/contact",
 } as const;
 
@@ -36,7 +36,7 @@ export const services: Service[] = [
   { name: "Staff Augmentation", blurb: "Senior engineers embedded in your team, fast." },
 ];
 
-/** Tech-stack marquee — logos/labels scrolled across CTA and homepage sections. */
+/** Tech-stack marquee - logos/labels scrolled across CTA and homepage sections. */
 export const techStack: string[] = [
   "React",
   "Next.js",

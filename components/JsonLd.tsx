@@ -1,5 +1,5 @@
 /**
- * Renders a JSON-LD structured-data script. Server component — emitted into the
+ * Renders a JSON-LD structured-data script. Server component - emitted into the
  * static HTML for crawlers. `data` is serialized as-is, so only pass trusted,
  * app-controlled objects (never user input).
  */

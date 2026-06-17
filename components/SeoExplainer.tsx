@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 
 /**
  * Long-form, crawlable copy block beneath a tool. This is where the page earns
- * its keyword relevance — pass a heading and rich explanatory content. Rendered
+ * its keyword relevance - pass a heading and rich explanatory content. Rendered
  * as a semantic <section> with a proper heading for correct document outline.
  */
 export function SeoExplainer({

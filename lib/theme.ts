@@ -1,9 +1,9 @@
 /**
- * Theme handling — cookie-persisted, SSR-safe, no flash of the wrong theme.
+ * Theme handling - cookie-persisted, SSR-safe, no flash of the wrong theme.
  *
  * Strategy: the cookie is the source of truth for persistence. A small blocking
- * inline script (see `themeInitScript`) runs during HTML parse — before first
- * paint — and applies `data-theme` from the cookie. This keeps every page fully
+ * inline script (see `themeInitScript`) runs during HTML parse - before first
+ * paint - and applies `data-theme` from the cookie. This keeps every page fully
  * static (no `cookies()` call that would force dynamic rendering) while avoiding
  * any flash. The <ThemeToggle> writes the cookie and flips the attribute live.
  */

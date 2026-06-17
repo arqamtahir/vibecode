@@ -32,7 +32,7 @@ export default function HomePage() {
             <span className="gradient-text">never leave your browser</span>
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-secondary">
-            Format, convert, generate, and debug — instantly and privately. No signup, no
+            Format, convert, generate, and debug - instantly and privately. No signup, no
             uploads, no tracking. Everything runs locally and works offline.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
