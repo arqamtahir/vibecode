@@ -8,7 +8,7 @@ export const siteConfig = {
   /** Used as the OG/Twitter site name and footer brand. */
   shortName: "Vibecode",
   /** Canonical production origin. Override per-environment with NEXT_PUBLIC_SITE_URL. */
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vibecode.algocrew.io").replace(
+  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://vibecode.pk").replace(
     /\/$/,
     "",
   ),
