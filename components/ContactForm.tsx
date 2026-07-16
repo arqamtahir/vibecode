@@ -10,7 +10,7 @@ interface FieldErrors {
   message?: string;
 }
 
-const CONTACT_EMAIL = "hello@algocrew.io";
+const CONTACT_EMAIL = "info@algocrew.io";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function ContactForm() {
