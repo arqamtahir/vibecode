@@ -23,16 +23,14 @@ export default function ContactPage() {
   return (
     <section className="px-4 py-20 sm:px-6">
       <div className="mx-auto max-w-xl">
-        <div className="text-center">
-          <p className="premium-badge mx-auto w-fit">Contact</p>
-          <h1 className="mt-6 text-4xl font-bold text-primary sm:text-5xl">
-            Let&apos;s <span className="gradient-text">talk</span>
-          </h1>
-          <p className="mx-auto mt-4 max-w-md text-secondary">
-            Feedback on a tool, a bug, or a project to scope with AlgoCrew? We read every
-            message.
-          </p>
-        </div>
+        <p className="badge">contact</p>
+        <h1 className="mt-6 font-serif text-4xl tracking-tight text-primary sm:text-6xl">
+          Say <em className="text-[var(--accent)]">hello.</em>
+        </h1>
+        <p className="mt-4 max-w-md text-secondary">
+          A bug, a feature request, or a project to scope with AlgoCrew — we
+          read everything.
+        </p>
 
         <div className="mt-10">
           <ContactForm />

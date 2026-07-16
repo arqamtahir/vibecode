@@ -108,7 +108,7 @@ export function PromptTemplateBuilder() {
             id="tpl-input"
             value={template}
             onChange={(e) => setTemplate(e.target.value)}
-            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           />
 
           <div className="mt-4">
@@ -128,7 +128,7 @@ export function PromptTemplateBuilder() {
                       id={`var-${name}`}
                       value={values[name] ?? ""}
                       onChange={(e) => setValues((v) => ({ ...v, [name]: e.target.value }))}
-                      className="mt-1 w-full rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+                      className="mt-1 w-full rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
                     />
                   </div>
                 ))}
@@ -148,14 +148,14 @@ export function PromptTemplateBuilder() {
             readOnly
             aria-labelledby="tpl-output-label"
             value={output}
-            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
       </div>
 
       {/* Persistence */}
       <div className="grid gap-6 lg:grid-cols-2">
-        <div className="glass-card p-4">
+        <div className="panel p-4">
           <h2 className="text-sm font-semibold text-primary">Saved templates</h2>
           <div className="mt-3 flex gap-2">
             <label htmlFor="tpl-name" className="sr-only">Template name</label>
@@ -164,13 +164,13 @@ export function PromptTemplateBuilder() {
               value={saveName}
               onChange={(e) => setSaveName(e.target.value)}
               placeholder="Template name"
-              className="flex-1 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+              className="flex-1 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
             />
             <button
               type="button"
               onClick={saveCurrent}
               disabled={!saveName.trim()}
-              className="rounded-full border border-[var(--glass-border)] px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-[var(--accent)] disabled:opacity-50"
+              className="rounded-full border border-[var(--border-hairline)] px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-[var(--accent)] disabled:opacity-50"
             >
               Save
             </button>
@@ -184,7 +184,7 @@ export function PromptTemplateBuilder() {
               {saved.map((t) => (
                 <li
                   key={t.name}
-                  className="flex items-center justify-between gap-2 rounded-lg border border-[var(--glass-border)] px-3 py-2"
+                  className="flex items-center justify-between gap-2 rounded-lg border border-[var(--border-hairline)] px-3 py-2"
                 >
                   <span className="truncate text-sm text-primary">{t.name}</span>
                   <span className="flex gap-2">
@@ -210,7 +210,7 @@ export function PromptTemplateBuilder() {
           )}
         </div>
 
-        <div className="glass-card p-4">
+        <div className="panel p-4">
           <div className="flex items-center justify-between gap-3">
             <h2 className="text-sm font-semibold text-primary">Export / import (JSON)</h2>
             <CopyButton value={exportTemplates(saved)} label="Copy export" />
@@ -222,18 +222,18 @@ export function PromptTemplateBuilder() {
             id="tpl-import"
             value={importText}
             onChange={(e) => setImportText(e.target.value)}
-            className="mt-1 h-24 w-full resize-y rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] p-2 font-mono text-xs text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1 h-24 w-full resize-y rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-2 font-mono text-xs text-primary focus:border-[var(--accent)] focus:outline-none"
           />
           <button
             type="button"
             onClick={doImport}
             disabled={!importText.trim()}
-            className="mt-2 rounded-full border border-[var(--glass-border)] px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-[var(--accent)] disabled:opacity-50"
+            className="mt-2 rounded-full border border-[var(--border-hairline)] px-4 py-2 text-sm font-medium text-primary transition-colors hover:border-[var(--accent)] disabled:opacity-50"
           >
             Import
           </button>
           <div aria-live="assertive" role="alert" className="mt-2">
-            {importError ? <p className="text-sm text-[var(--brand-purple)]">{importError}</p> : null}
+            {importError ? <p className="text-sm text-[var(--danger)]">{importError}</p> : null}
           </div>
         </div>
       </div>

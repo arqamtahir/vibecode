@@ -21,9 +21,9 @@ export function QrCodeGenerator() {
   const [svgData, setSvgData] = useState("");
 
   useEffect(() => {
-    if (!text.trim()) { setError(""); setSvgData(""); return; }
-    if (text.length > MAX_INPUT) { setError(`Input too long (max ${MAX_INPUT} characters).`); return; }
-    setError("");
+    // Empty/too-long messaging is derived at render time; the effect only
+    // handles the async generation itself.
+    if (!text.trim() || text.length > MAX_INPUT) return;
 
     let cancelled = false;
     async function run() {
@@ -43,7 +43,10 @@ export function QrCodeGenerator() {
           errorCorrectionLevel: ecLevel,
           margin: 2,
         });
-        if (!cancelled) setSvgData(svg);
+        if (!cancelled) {
+          setSvgData(svg);
+          setError("");
+        }
       } catch {
         if (!cancelled) setError("Could not generate QR code.");
       }
@@ -84,10 +87,10 @@ export function QrCodeGenerator() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter a URL, Wi-Fi credentials, contact info…"
-          className="mt-1.5 h-24 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-1.5 h-24 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
           aria-describedby="qr-char-count"
         />
-        <p id="qr-char-count" className={`mt-1 text-right text-xs ${tooLong ? "text-[var(--brand-purple)]" : "text-muted"}`}>
+        <p id="qr-char-count" className={`mt-1 text-right text-xs ${tooLong ? "text-[var(--danger)]" : "text-muted"}`}>
           {text.length}/{MAX_INPUT}
         </p>
       </div>
@@ -118,7 +121,7 @@ export function QrCodeGenerator() {
             id="qr-ec"
             value={ecLevel}
             onChange={(e) => setEcLevel(e.target.value as EcLevel)}
-            className="mt-1.5 block rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1.5 block rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           >
             {EC_LEVELS.map((l) => (
               <option key={l.value} value={l.value}>{l.label}</option>
@@ -127,9 +130,9 @@ export function QrCodeGenerator() {
         </div>
       </div>
 
-      {error && (
-        <p role="alert" aria-live="assertive" className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] px-4 py-3 text-sm text-secondary">
-          {error}
+      {(tooLong || error) && (
+        <p role="alert" aria-live="assertive" className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] px-4 py-3 text-sm text-secondary">
+          {tooLong ? `Input too long (max ${MAX_INPUT} characters).` : error}
         </p>
       )}
 
@@ -140,17 +143,17 @@ export function QrCodeGenerator() {
             width={size}
             height={size}
             aria-label="Generated QR code"
-            className="rounded-xl border border-[var(--glass-border)]"
+            className="rounded-xl border border-[var(--border-hairline)]"
             style={{ maxWidth: "100%", height: "auto" }}
           />
           <div className="flex gap-3">
-            <button onClick={downloadPng} className="glow-button">
+            <button onClick={downloadPng} className="btn-primary">
               Download PNG
             </button>
             <button
               onClick={downloadSvg}
               disabled={!svgData}
-              className="rounded-xl border border-[var(--glass-border)] px-5 py-2.5 text-sm font-semibold text-primary hover:border-[var(--accent)] disabled:opacity-40"
+              className="rounded-xl border border-[var(--border-hairline)] px-5 py-2.5 text-sm font-semibold text-primary hover:border-[var(--accent)] disabled:opacity-40"
             >
               Download SVG
             </button>

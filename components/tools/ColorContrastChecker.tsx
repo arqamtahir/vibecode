@@ -12,7 +12,7 @@ function normalizeHex(value: string): string {
 }
 
 function PassFail({ pass }: { pass: boolean }) {
-  const tone = pass ? "var(--accent)" : "var(--brand-purple)";
+  const tone = pass ? "var(--accent)" : "var(--danger)";
   return (
     <span
       className="rounded-full border px-2.5 py-0.5 text-xs font-medium"
@@ -48,7 +48,7 @@ function ColorField({
           aria-label={`${label} color picker`}
           value={valid ? normalizeHex(value) : "#000000"}
           onChange={(e) => onChange(e.target.value)}
-          className="h-10 w-12 cursor-pointer rounded border border-[var(--glass-border)] bg-transparent"
+          className="h-10 w-12 cursor-pointer rounded border border-[var(--border-hairline)] bg-transparent"
         />
         <input
           id={id}
@@ -56,7 +56,7 @@ function ColorField({
           onChange={(e) => onChange(e.target.value)}
           aria-invalid={!valid}
           spellCheck={false}
-          className="w-32 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+          className="w-32 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
     </div>
@@ -92,7 +92,7 @@ export function ColorContrastChecker() {
 
         <div aria-live="assertive" role="alert">
           {!result ? (
-            <p className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+            <p className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
               Enter two valid hex colors (e.g. #1a2b3c or #abc).
             </p>
           ) : null}
@@ -100,7 +100,7 @@ export function ColorContrastChecker() {
 
         {result ? (
           <>
-            <div className="glass-card p-5">
+            <div className="panel p-5">
               <p className="text-sm text-secondary">Contrast ratio</p>
               <p className="mt-1 text-3xl font-bold text-primary" aria-live="polite">
                 {result.ratio.toFixed(2)}:1
@@ -110,7 +110,7 @@ export function ColorContrastChecker() {
               {checks.map((c) => (
                 <li
                   key={c.label}
-                  className="flex items-center justify-between gap-2 rounded-xl border border-[var(--glass-border)] p-3"
+                  className="flex items-center justify-between gap-2 rounded-xl border border-[var(--border-hairline)] p-3"
                 >
                   <span className="text-sm text-secondary">{c.label}</span>
                   <PassFail pass={c.pass} />
@@ -127,7 +127,7 @@ export function ColorContrastChecker() {
               {palette.map((hex) => (
                 <li key={hex} className="flex flex-col items-center gap-1">
                   <span
-                    className="block h-10 w-12 rounded-lg border border-[var(--glass-border)]"
+                    className="block h-10 w-12 rounded-lg border border-[var(--border-hairline)]"
                     style={{ background: hex }}
                     aria-hidden="true"
                   />
@@ -146,7 +146,7 @@ export function ColorContrastChecker() {
       <div className="space-y-4">
         <p className="text-sm font-medium text-primary">Live preview</p>
         <div
-          className="space-y-4 rounded-2xl border border-[var(--glass-border)] p-6"
+          className="space-y-4 rounded-2xl border border-[var(--border-hairline)] p-6"
           style={{ background: validBg ? normalizeHex(bg) : undefined, color: validFg ? normalizeHex(fg) : undefined }}
         >
           <p className="text-base">Normal text - the quick brown fox jumps over the lazy dog.</p>

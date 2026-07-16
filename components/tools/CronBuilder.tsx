@@ -76,7 +76,7 @@ function CronFieldControl({
   }
 
   return (
-    <fieldset className="glass-card p-4">
+    <fieldset className="panel p-4">
       <legend className="px-1 text-sm font-semibold text-primary">{config.legend}</legend>
 
       <div role="radiogroup" aria-label={`${config.legend} mode`} className="mt-2 flex flex-wrap gap-2">
@@ -86,7 +86,7 @@ function CronFieldControl({
             className={`cursor-pointer rounded-full border px-3 py-1 text-xs transition-colors ${
               field.mode === m.value
                 ? "border-[var(--accent)] text-primary [background:color-mix(in_srgb,var(--accent)_14%,transparent)]"
-                : "border-[var(--glass-border)] text-secondary"
+                : "border-[var(--border-hairline)] text-secondary"
             }`}
           >
             <input
@@ -116,7 +116,7 @@ function CronFieldControl({
             onChange={(e) =>
               onChange({ ...field, step: Math.max(1, Math.floor(Number(e.target.value) || 1)) })
             }
-            className="w-20 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-2 py-1.5 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="w-20 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-2 py-1.5 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           />
           <span className="text-xs text-secondary">{config.unit}</span>
         </div>
@@ -135,7 +135,7 @@ function CronFieldControl({
                 className={`min-w-9 rounded-md border px-2 py-1 text-xs transition-colors ${
                   active
                     ? "border-[var(--accent)] text-primary [background:color-mix(in_srgb,var(--accent)_18%,transparent)]"
-                    : "border-[var(--glass-border)] text-secondary hover:text-primary"
+                    : "border-[var(--border-hairline)] text-secondary hover:text-primary"
                 }`}
               >
                 {config.label ? config.label(v) : v}
@@ -171,7 +171,7 @@ export function CronBuilder() {
         ))}
       </div>
 
-      <div className="glass-card p-5">
+      <div className="panel p-5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <h2 className="text-sm font-medium text-secondary">Cron expression</h2>
           <CopyButton value={expression} label="Copy expression" />

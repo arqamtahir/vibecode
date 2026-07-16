@@ -464,4 +464,147 @@ export const toolExplainers: Record<string, { heading: string; body: ReactNode }
       </>
     ),
   },
+  "password-generator": {
+    heading: "Strong password generator, fully in your browser",
+    body: (
+      <>
+        <p>
+          This password generator creates strong random passwords using your browser&apos;s
+          cryptographic random source (crypto.getRandomValues) with rejection sampling, so
+          every character is drawn uniformly with no modulo bias. Choose the length and mix
+          of lowercase, uppercase, digits, and symbols, and the tool shows the resulting
+          entropy in bits - the honest measure of how hard a password is to brute-force.
+        </p>
+        <p>
+          Because generation is 100% client-side, the password exists only on your machine:
+          nothing is transmitted, logged, or stored. Aim for at least 70-80 bits of entropy
+          for important accounts, and prefer a password manager over memorising anything.
+          The tool works offline once the page has loaded.
+        </p>
+      </>
+    ),
+  },
+  "diff-checker": {
+    heading: "Compare two texts online, privately",
+    body: (
+      <>
+        <p>
+          Paste two versions of any text - code, config, prose, JSON - and this diff
+          checker highlights exactly which lines were added and removed, using the same
+          Myers algorithm that powers git diff. Line numbers for both versions make it easy
+          to trace a change back to its source, and a one-click copy gives you a
+          unified-diff-style summary for a commit message or code review.
+        </p>
+        <p>
+          Diffing happens entirely in your browser, which matters when you&apos;re comparing
+          things you shouldn&apos;t paste into random websites: contracts, .env files, API
+          responses with tokens. Nothing is uploaded, nothing is stored, and the tool keeps
+          working offline after the page loads.
+        </p>
+      </>
+    ),
+  },
+  "hash-generator": {
+    heading: "MD5, SHA-1, SHA-256, SHA-384 & SHA-512 hashes online",
+    body: (
+      <>
+        <p>
+          Type or paste any text and this hash generator computes MD5, SHA-1, SHA-256,
+          SHA-384, and SHA-512 digests simultaneously, live as you type. The SHA family is
+          computed with your browser&apos;s native Web Crypto API, so it&apos;s fast and
+          exactly matches the output of tools like sha256sum. Each digest copies with one
+          click as lowercase hex.
+        </p>
+        <p>
+          Use SHA-256 or stronger for anything security-related - MD5 and SHA-1 are
+          included only for legacy checksums and cache keys, as both are cryptographically
+          broken for collision resistance. Hashing runs 100% client-side: your input never
+          leaves the page, which makes this safe for hashing things you&apos;d never submit
+          to an online service.
+        </p>
+      </>
+    ),
+  },
+  "color-converter": {
+    heading: "Convert colors between hex, RGB, HSL, and OKLCH",
+    body: (
+      <>
+        <p>
+          Paste a color in hex (#c2410c), rgb(), or hsl() - or pick one visually - and this
+          color converter shows it in all four notations at once, with a live swatch so you
+          can confirm it&apos;s the color you meant. OKLCH output is included because modern
+          CSS supports it natively and its lightness channel is perceptually uniform,
+          making it far better for building color scales than HSL.
+        </p>
+        <p>
+          Conversions use the standard sRGB math (and the OKLab transform for OKLCH), run
+          instantly, and work offline after load. Nothing is uploaded and nothing is
+          tracked. When you&apos;ve picked a color, check it against your background with
+          the color contrast checker to keep text WCAG-compliant.
+        </p>
+      </>
+    ),
+  },
+  "url-encoder-decoder": {
+    heading: "URL encoding and decoding, explained and instant",
+    body: (
+      <>
+        <p>
+          This URL encoder/decoder converts text to and from percent-encoding instantly.
+          Component mode encodes every reserved character - what you want for a single
+          query-string value - while full-URL mode leaves structural characters like
+          <code>/</code>, <code>?</code>, and <code>&amp;</code> intact so a whole address
+          stays valid. Decoding also treats <code>+</code> as a space, matching how forms
+          submit data.
+        </p>
+        <p>
+          Paste a full URL and the tool additionally breaks its query string into a table
+          of decoded key/value pairs, which is the fastest way to read a long tracking or
+          OAuth redirect URL. Everything runs in your browser with the standard
+          encodeURIComponent APIs - no uploads, no logging, works offline.
+        </p>
+      </>
+    ),
+  },
+  "word-counter": {
+    heading: "Word and character counter with reading time",
+    body: (
+      <>
+        <p>
+          Paste or type text and this word counter updates live with words, characters
+          (with and without spaces), sentences, and paragraphs, plus estimated reading time
+          (~225 words per minute) and speaking time (~140). It&apos;s built for the everyday
+          jobs: fitting a meta description, trimming an abstract to a limit, timing a talk,
+          or checking an essay&apos;s length.
+        </p>
+        <p>
+          Unlike most online counters, everything is computed in your browser - your text
+          is never uploaded, which makes this safe for unpublished drafts, legal text, or
+          anything confidential. There are no ads, no signup, and it keeps working offline
+          once loaded.
+        </p>
+      </>
+    ),
+  },
+  "lorem-ipsum-generator": {
+    heading: "Lorem ipsum placeholder text, plain or HTML",
+    body: (
+      <>
+        <p>
+          Generate classic lorem ipsum placeholder text with precise control: choose the
+          number of paragraphs and sentences per paragraph, optionally start with the
+          traditional &ldquo;Lorem ipsum dolor sit amet&rdquo; opening, and switch on HTML
+          mode to wrap each paragraph in <code>&lt;p&gt;</code> tags ready for a template
+          or CMS.
+        </p>
+        <p>
+          Designers and developers use lorem ipsum because its word-length distribution
+          reads like natural language without the distraction of real content - layouts get
+          judged on structure, not copy. This generator runs entirely in your browser: no
+          uploads, no tracking, no signup, and it works offline after the first load. Copy
+          the result with one click.
+        </p>
+      </>
+    ),
+  },
 };

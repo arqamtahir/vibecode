@@ -29,7 +29,7 @@ const makeLayer = (id: string): EditableLayer => ({
   y: 8,
   blur: 24,
   spread: -4,
-  hex: "#6366f1",
+  hex: "#c2410c",
   alpha: 0.45,
   inset: false,
 });
@@ -77,14 +77,14 @@ export function BoxShadowGenerator() {
           <button
             type="button"
             onClick={addLayer}
-            className="rounded-full border border-[var(--glass-border)] px-3 py-1 text-sm text-secondary transition-colors hover:text-primary hover:border-[var(--accent)]"
+            className="rounded-full border border-[var(--border-hairline)] px-3 py-1 text-sm text-secondary transition-colors hover:text-primary hover:border-[var(--accent)]"
           >
             + Add layer
           </button>
         </div>
 
         {layers.map((layer, i) => (
-          <fieldset key={layer.id} className="space-y-3 rounded-xl border border-[var(--glass-border)] p-4">
+          <fieldset key={layer.id} className="space-y-3 rounded-xl border border-[var(--border-hairline)] p-4">
             <legend className="flex w-full items-center justify-between px-1">
               <span className="text-sm font-semibold text-primary">Layer {i + 1}</span>
             </legend>
@@ -116,7 +116,7 @@ export function BoxShadowGenerator() {
                   type="color"
                   value={layer.hex}
                   onChange={(e) => update(layer.id, { hex: e.target.value })}
-                  className="h-9 w-12 cursor-pointer rounded border border-[var(--glass-border)] bg-transparent"
+                  className="h-9 w-12 cursor-pointer rounded border border-[var(--border-hairline)] bg-transparent"
                 />
               </div>
               <div className="flex-1">
@@ -148,7 +148,7 @@ export function BoxShadowGenerator() {
                 onClick={() => removeLayer(layer.id)}
                 disabled={layers.length <= 1}
                 aria-label={`Remove layer ${i + 1}`}
-                className="rounded-lg border border-[var(--glass-border)] px-2 py-1 text-sm text-secondary transition-colors hover:text-primary disabled:opacity-40"
+                className="rounded-lg border border-[var(--border-hairline)] px-2 py-1 text-sm text-secondary transition-colors hover:text-primary disabled:opacity-40"
               >
                 ✕
               </button>
@@ -158,9 +158,9 @@ export function BoxShadowGenerator() {
       </div>
 
       <div className="space-y-4">
-        <div className="grid h-56 w-full place-items-center rounded-2xl border border-[var(--glass-border)] [background:var(--bg-elevated)]">
+        <div className="grid h-56 w-full place-items-center rounded-2xl border border-[var(--border-hairline)] [background:var(--bg-elevated)]">
           <div
-            className="h-28 w-40 rounded-2xl [background:var(--bg-page)]"
+            className="h-28 w-40 rounded-2xl [background:var(--bg-elevated)]"
             style={{ boxShadow: value }}
             role="img"
             aria-label="Live box-shadow preview on a sample element"
@@ -177,7 +177,7 @@ export function BoxShadowGenerator() {
           aria-labelledby="shadow-css-label"
           value={css}
           spellCheck={false}
-          className="h-24 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+          className="h-24 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
     </div>

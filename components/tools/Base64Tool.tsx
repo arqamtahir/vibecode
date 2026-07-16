@@ -61,12 +61,12 @@ export function Base64Tool() {
     <div className="space-y-6">
       <fieldset>
         <legend className="text-sm font-medium text-primary">Direction</legend>
-        <div className="mt-2 inline-flex rounded-full border border-[var(--glass-border)] p-1">
+        <div className="mt-2 inline-flex rounded-full border border-[var(--border-hairline)] p-1">
           {(["encode", "decode"] as Direction[]).map((d) => (
             <label
               key={d}
               className={`cursor-pointer rounded-full px-4 py-1.5 text-sm capitalize transition-colors ${
-                direction === d ? "[background:var(--gradient-brand)] text-white" : "text-secondary"
+                direction === d ? "[background:var(--accent)] text-[var(--accent-contrast)]" : "text-secondary"
               }`}
             >
               <input
@@ -94,7 +94,7 @@ export function Base64Tool() {
             onChange={(e) => setInput(e.target.value)}
             spellCheck={false}
             placeholder={direction === "encode" ? "Hello, world! 👋" : "SGVsbG8sIHdvcmxkIQ=="}
-            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
           />
 
           {direction === "encode" ? (
@@ -119,13 +119,13 @@ export function Base64Tool() {
           ) : null}
 
           <div className="mt-3 flex flex-wrap gap-2">
-            <button type="button" onClick={run} className="glow-button">
+            <button type="button" onClick={run} className="btn-primary">
               {direction === "encode" ? "Encode" : "Decode"}
             </button>
             <button
               type="button"
               onClick={reset}
-              className="inline-flex items-center rounded-full border border-[var(--glass-border)] px-5 py-2.5 text-sm font-medium text-secondary transition-colors hover:text-primary"
+              className="inline-flex items-center rounded-full border border-[var(--border-hairline)] px-5 py-2.5 text-sm font-medium text-secondary transition-colors hover:text-primary"
             >
               Clear
             </button>
@@ -133,7 +133,7 @@ export function Base64Tool() {
 
           <div aria-live="assertive" role="alert" className="mt-3">
             {error ? (
-              <p className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+              <p className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
                 {error}
               </p>
             ) : null}
@@ -153,7 +153,7 @@ export function Base64Tool() {
             value={output}
             spellCheck={false}
             placeholder={direction === "encode" ? "Base64 output appears here." : "Decoded text appears here."}
-            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+            className="mt-2 h-56 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
       </div>

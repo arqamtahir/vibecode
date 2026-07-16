@@ -44,7 +44,7 @@ export function CopyButton({ value, label = "Copy", className }: CopyButtonProps
         disabled={!value}
         className={
           className ??
-          "inline-flex items-center gap-2 rounded-lg border border-[var(--glass-border)] px-3 py-2 text-sm text-secondary transition-colors hover:text-primary hover:border-[var(--accent)] disabled:opacity-50"
+          "inline-flex items-center gap-2 rounded-lg border border-[var(--border-hairline)] px-3 py-2 text-sm text-secondary transition-colors hover:text-primary hover:border-[var(--border-strong)] disabled:opacity-50"
         }
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">

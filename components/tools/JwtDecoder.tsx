@@ -16,7 +16,7 @@ function StatusBadge({ status }: { status: JwtStatus }) {
     status === "valid"
       ? "var(--accent)"
       : status === "expired" || status === "not-yet-valid"
-        ? "var(--brand-purple)"
+        ? "var(--danger)"
         : "var(--text-muted)";
   return (
     <span
@@ -48,7 +48,7 @@ function Section({ title, json }: { title: string; json: Record<string, unknown>
         <h3 className="text-sm font-medium text-primary">{title}</h3>
         <CopyButton value={text} label={`Copy ${title.toLowerCase()}`} />
       </div>
-      <pre className="mt-2 max-h-72 overflow-auto rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary">
+      <pre className="mt-2 max-h-72 overflow-auto rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary">
         <code>{text}</code>
       </pre>
     </div>
@@ -73,9 +73,9 @@ export function JwtDecoder() {
           onChange={(e) => setToken(e.target.value)}
           spellCheck={false}
           placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0In0.signature"
-          className="mt-2 h-28 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-2 h-28 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
         />
-        <p className="mt-2 rounded-lg border border-[var(--glass-border)] p-2 text-xs text-secondary">
+        <p className="mt-2 rounded-lg border border-[var(--border-hairline)] p-2 text-xs text-secondary">
           <strong className="text-primary">Note:</strong> this tool decodes the header and
           payload only. The <strong>signature is never verified</strong> - verifying it
           requires the signing secret or public key. Decoding happens entirely in your
@@ -85,7 +85,7 @@ export function JwtDecoder() {
 
       <div aria-live="assertive" role="alert">
         {result && !result.ok ? (
-          <p className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+          <p className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
             {result.error}
           </p>
         ) : null}

@@ -60,7 +60,7 @@ export function CsvToJson() {
             id="csv-delimiter"
             value={delimiter}
             onChange={(e) => setDelimiter(e.target.value)}
-            className="mt-1.5 block rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1.5 block rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           >
             {DELIMITERS.map((d) => (
               <option key={d.value} value={d.value}>
@@ -93,7 +93,7 @@ export function CsvToJson() {
         <div className="self-end pb-1.5">
           <button
             onClick={() => fileRef.current?.click()}
-            className="rounded-lg border border-[var(--glass-border)] px-3 py-1.5 text-sm font-medium text-secondary hover:text-primary"
+            className="rounded-lg border border-[var(--border-hairline)] px-3 py-1.5 text-sm font-medium text-secondary hover:text-primary"
           >
             Upload CSV
           </button>
@@ -119,7 +119,7 @@ export function CsvToJson() {
             onChange={(e) => setCsv(e.target.value)}
             spellCheck={false}
             placeholder="Paste CSV here or upload a file…"
-            className="mt-1.5 h-72 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1.5 h-72 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
 
@@ -134,7 +134,7 @@ export function CsvToJson() {
               <button
                 onClick={download}
                 disabled={!json}
-                className="rounded-lg border border-[var(--glass-border)] px-3 py-1.5 text-xs font-medium text-secondary hover:text-primary disabled:opacity-40"
+                className="rounded-lg border border-[var(--border-hairline)] px-3 py-1.5 text-xs font-medium text-secondary hover:text-primary disabled:opacity-40"
               >
                 Download
               </button>
@@ -144,14 +144,14 @@ export function CsvToJson() {
           {result?.errors.length ? (
             <ul aria-live="assertive" className="mt-2 space-y-1">
               {result.errors.map((e, i) => (
-                <li key={i} className="rounded-lg border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] px-3 py-2 text-xs text-secondary">
+                <li key={i} className="rounded-lg border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] px-3 py-2 text-xs text-secondary">
                   {e}
                 </li>
               ))}
             </ul>
           ) : null}
 
-          <pre className="mt-1.5 h-72 overflow-auto rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-xs text-primary whitespace-pre-wrap break-all">
+          <pre className="mt-1.5 h-72 overflow-auto rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-xs text-primary whitespace-pre-wrap break-all">
             {json || <span className="text-muted">JSON will appear here.</span>}
           </pre>
         </div>

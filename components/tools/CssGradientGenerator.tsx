@@ -43,12 +43,12 @@ export function CssGradientGenerator() {
       <div className="space-y-5">
         <fieldset>
           <legend className="text-sm font-medium text-primary">Gradient type</legend>
-          <div className="mt-2 inline-flex rounded-full border border-[var(--glass-border)] p-1">
+          <div className="mt-2 inline-flex rounded-full border border-[var(--border-hairline)] p-1">
             {(["linear", "radial"] as const).map((t) => (
               <label
                 key={t}
                 className={`cursor-pointer rounded-full px-4 py-1.5 text-sm capitalize transition-colors ${
-                  state.type === t ? "[background:var(--gradient-brand)] text-white" : "text-secondary"
+                  state.type === t ? "[background:var(--accent)] text-[var(--accent-contrast)]" : "text-secondary"
                 }`}
               >
                 <input
@@ -88,7 +88,7 @@ export function CssGradientGenerator() {
             <button
               type="button"
               onClick={addStop}
-              className="rounded-full border border-[var(--glass-border)] px-3 py-1 text-sm text-secondary transition-colors hover:text-primary hover:border-[var(--accent)]"
+              className="rounded-full border border-[var(--border-hairline)] px-3 py-1 text-sm text-secondary transition-colors hover:text-primary hover:border-[var(--accent)]"
             >
               + Add stop
             </button>
@@ -97,7 +97,7 @@ export function CssGradientGenerator() {
           {state.stops.map((stop, i) => (
             <fieldset
               key={stop.id}
-              className="flex flex-wrap items-center gap-3 rounded-xl border border-[var(--glass-border)] p-3"
+              className="flex flex-wrap items-center gap-3 rounded-xl border border-[var(--border-hairline)] p-3"
             >
               <legend className="sr-only">Color stop {i + 1}</legend>
               <label htmlFor={`color-${stop.id}`} className="sr-only">
@@ -108,7 +108,7 @@ export function CssGradientGenerator() {
                 type="color"
                 value={stop.color}
                 onChange={(e) => updateStop(stop.id, { color: e.target.value })}
-                className="h-9 w-12 cursor-pointer rounded border border-[var(--glass-border)] bg-transparent"
+                className="h-9 w-12 cursor-pointer rounded border border-[var(--border-hairline)] bg-transparent"
               />
               <div className="flex-1">
                 <label htmlFor={`pos-${stop.id}`} className="text-xs text-secondary">
@@ -129,7 +129,7 @@ export function CssGradientGenerator() {
                 onClick={() => removeStop(stop.id)}
                 disabled={state.stops.length <= 2}
                 aria-label={`Remove color stop ${i + 1}`}
-                className="rounded-lg border border-[var(--glass-border)] px-2 py-1 text-sm text-secondary transition-colors hover:text-primary disabled:opacity-40"
+                className="rounded-lg border border-[var(--border-hairline)] px-2 py-1 text-sm text-secondary transition-colors hover:text-primary disabled:opacity-40"
               >
                 ✕
               </button>
@@ -140,7 +140,7 @@ export function CssGradientGenerator() {
 
       <div className="space-y-4">
         <div
-          className="h-56 w-full rounded-2xl border border-[var(--glass-border)]"
+          className="h-56 w-full rounded-2xl border border-[var(--border-hairline)]"
           style={{ background: value }}
           role="img"
           aria-label="Live gradient preview"
@@ -156,7 +156,7 @@ export function CssGradientGenerator() {
           aria-labelledby="gradient-css-label"
           value={css}
           spellCheck={false}
-          className="h-24 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+          className="h-24 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
     </div>

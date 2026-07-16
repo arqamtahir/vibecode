@@ -54,22 +54,22 @@ export function TokenCounter() {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Paste a prompt or any text to count its tokens…"
-          className="mt-2 h-48 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-2 h-48 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
 
       <dl className="grid grid-cols-3 gap-3" aria-live="polite">
-        <div className="glass-card p-4">
+        <div className="panel p-4">
           <dt className="text-xs text-secondary">Tokens</dt>
           <dd className="mt-1 text-2xl font-bold text-primary">
             {tokens === null ? "…" : tokens.toLocaleString()}
           </dd>
         </div>
-        <div className="glass-card p-4">
+        <div className="panel p-4">
           <dt className="text-xs text-secondary">Characters</dt>
           <dd className="mt-1 text-2xl font-bold text-primary">{chars.toLocaleString()}</dd>
         </div>
-        <div className="glass-card p-4">
+        <div className="panel p-4">
           <dt className="text-xs text-secondary">Words</dt>
           <dd className="mt-1 text-2xl font-bold text-primary">{words.toLocaleString()}</dd>
         </div>
@@ -97,7 +97,7 @@ export function TokenCounter() {
             </thead>
             <tbody>
               {presets.map((p) => (
-                <tr key={p.id} className="border-t border-[var(--glass-border)]">
+                <tr key={p.id} className="border-t border-[var(--border-hairline)]">
                   <td className="p-2">
                     <input
                       type="radio"
@@ -114,7 +114,7 @@ export function TokenCounter() {
                       id={`model-${p.id}`}
                       value={p.model}
                       onChange={(e) => updatePreset(p.id, { model: e.target.value })}
-                      className="w-32 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-2 py-1 text-primary focus:border-[var(--accent)] focus:outline-none"
+                      className="w-32 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-2 py-1 text-primary focus:border-[var(--accent)] focus:outline-none"
                     />
                   </td>
                   <td className="p-2">
@@ -126,7 +126,7 @@ export function TokenCounter() {
                       step={0.01}
                       value={p.inputPer1M}
                       onChange={(e) => updatePreset(p.id, { inputPer1M: Number(e.target.value) })}
-                      className="w-24 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-2 py-1 text-primary focus:border-[var(--accent)] focus:outline-none"
+                      className="w-24 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-2 py-1 text-primary focus:border-[var(--accent)] focus:outline-none"
                     />
                   </td>
                   <td className="p-2">
@@ -138,7 +138,7 @@ export function TokenCounter() {
                       step={0.01}
                       value={p.outputPer1M}
                       onChange={(e) => updatePreset(p.id, { outputPer1M: Number(e.target.value) })}
-                      className="w-24 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-2 py-1 text-primary focus:border-[var(--accent)] focus:outline-none"
+                      className="w-24 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-2 py-1 text-primary focus:border-[var(--accent)] focus:outline-none"
                     />
                   </td>
                   <td className="p-2 font-mono text-primary">

@@ -36,7 +36,7 @@ export function TimestampConverter() {
   return (
     <div className="space-y-6">
       {/* Current epoch ticker */}
-      <div className="glass-card flex items-center justify-between gap-4 px-5 py-4">
+      <div className="panel flex items-center justify-between gap-4 px-5 py-4">
         <div>
           <p className="text-xs text-muted">Current Unix timestamp</p>
           <p className="font-mono text-2xl font-semibold text-primary tabular-nums" aria-live="polite" aria-atomic="true">
@@ -58,10 +58,10 @@ export function TimestampConverter() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="e.g. 1700000000  ·  2024-11-15  ·  leave blank to use current time"
-          className="mt-1.5 w-full rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-1.5 w-full rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
         />
         {error && (
-          <p aria-live="assertive" className="mt-2 text-xs text-[var(--brand-purple)]">
+          <p aria-live="assertive" className="mt-2 text-xs text-[var(--danger)]">
             {error}
           </p>
         )}
@@ -71,7 +71,7 @@ export function TimestampConverter() {
       {rows.length > 0 && (
         <ul className="grid gap-3 sm:grid-cols-2" aria-label="Timestamp conversions">
           {rows.map((r) => (
-            <li key={r.label} className="glass-card flex items-center justify-between gap-3 px-4 py-3">
+            <li key={r.label} className="panel flex items-center justify-between gap-3 px-4 py-3">
               <div className="min-w-0">
                 <p className="text-xs text-muted">{r.label}</p>
                 <p className="truncate font-mono text-sm text-primary">{r.value}</p>

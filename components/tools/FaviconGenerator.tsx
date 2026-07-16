@@ -137,7 +137,7 @@ export function FaviconGenerator() {
 
       <div aria-live="assertive" role="alert">
         {error ? (
-          <p className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+          <p className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
             {error}
           </p>
         ) : null}
@@ -149,7 +149,7 @@ export function FaviconGenerator() {
       {icons.length > 0 ? (
         <>
           <div className="flex flex-wrap items-center gap-3">
-            <button type="button" onClick={downloadZip} disabled={busy} className="glow-button disabled:opacity-60">
+            <button type="button" onClick={downloadZip} disabled={busy} className="btn-primary disabled:opacity-60">
               Download .zip
             </button>
             <span className="text-sm text-secondary">{icons.length} sizes ready</span>
@@ -159,7 +159,7 @@ export function FaviconGenerator() {
             {icons.map((icon) => (
               <li key={icon.target.filename} className="flex flex-col items-center gap-2">
                 <span
-                  className="grid place-items-center rounded-xl border border-[var(--glass-border)] [background:var(--bg-elevated)] p-3"
+                  className="grid place-items-center rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3"
                   style={{ width: 96, height: 96 }}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element -- in-browser canvas data URL, not a remote asset */}
@@ -186,7 +186,7 @@ export function FaviconGenerator() {
             </div>
             <pre
               aria-labelledby="favicon-html-label"
-              className="mt-2 overflow-x-auto rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-xs text-primary"
+              className="mt-2 overflow-x-auto rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-xs text-primary"
             >
               <code>{htmlSnippet}</code>
             </pre>

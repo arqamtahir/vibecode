@@ -100,6 +100,37 @@ export const tools: Tool[] = [
     searchQuery: "cron expression builder",
   },
 
+  {
+    slug: "password-generator",
+    name: "Password Generator",
+    category: "Developer Utilities",
+    shortDescription: "Generate strong random passwords with entropy readout.",
+    seoTitle: "Password Generator - Strong Random Passwords, Free & Private",
+    seoDescription:
+      "Generate strong, cryptographically random passwords with custom length and character sets, plus an entropy readout. 100% client-side - nothing ever leaves your browser.",
+    searchQuery: "password generator",
+  },
+  {
+    slug: "diff-checker",
+    name: "Diff Checker",
+    category: "Developer Utilities",
+    shortDescription: "Compare two texts line by line with a clear diff view.",
+    seoTitle: "Diff Checker - Compare Two Texts Online, Free & Private",
+    seoDescription:
+      "Compare two blocks of text line by line and see additions and deletions highlighted instantly. Copy a unified diff. Free, private, and 100% client-side - no upload.",
+    searchQuery: "diff checker text compare online",
+  },
+  {
+    slug: "hash-generator",
+    name: "Hash Generator",
+    category: "Developer Utilities",
+    shortDescription: "Compute MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes.",
+    seoTitle: "Hash Generator - SHA-256, SHA-512, MD5 Online, Free",
+    seoDescription:
+      "Generate MD5, SHA-1, SHA-256, SHA-384, and SHA-512 hashes from any text instantly, using your browser's Web Crypto API. Free, private, and fully client-side.",
+    searchQuery: "sha256 hash generator online",
+  },
+
   // ───────────────────────── Frontend & Web ─────────────────────────
   {
     slug: "css-gradient-generator",
@@ -160,6 +191,17 @@ export const tools: Tool[] = [
     seoDescription:
       "Write title, description, and Open Graph tags and preview exactly how your page looks on Google, Twitter/X, and Facebook. Copy the meta tags. Free and client-side.",
     searchQuery: "open graph meta tag previewer",
+  },
+
+  {
+    slug: "color-converter",
+    name: "Color Converter",
+    category: "Frontend & Web",
+    shortDescription: "Convert colors between hex, RGB, HSL, and OKLCH.",
+    seoTitle: "Color Converter - HEX to RGB, HSL & OKLCH Online, Free",
+    seoDescription:
+      "Convert any color between hex, RGB, HSL, and modern OKLCH with a live swatch preview and one-click copy. Free, fast, and 100% client-side - works offline.",
+    searchQuery: "hex to rgb color converter",
   },
 
   // ───────────────────────── AI & Vibecoding ─────────────────────────
@@ -254,6 +296,36 @@ export const tools: Tool[] = [
     seoDescription:
       "Compress and resize JPEG, PNG, and WebP images right in your browser - adjust quality, see the size saved, and download. Nothing is uploaded. Free and fully private.",
     searchQuery: "image compressor online",
+  },
+  {
+    slug: "url-encoder-decoder",
+    name: "URL Encoder / Decoder",
+    category: "Converters & Formatters",
+    shortDescription: "Encode or decode URLs and break down query parameters.",
+    seoTitle: "URL Encoder & Decoder - Free Online Percent-Encoding Tool",
+    seoDescription:
+      "Encode or decode URLs and query strings (percent-encoding) instantly, with a decoded breakdown of every query parameter. Free, private, and 100% in-browser.",
+    searchQuery: "url encoder decoder online",
+  },
+  {
+    slug: "word-counter",
+    name: "Word Counter",
+    category: "Converters & Formatters",
+    shortDescription: "Count words, characters, sentences, and reading time.",
+    seoTitle: "Word Counter - Words, Characters & Reading Time, Free",
+    seoDescription:
+      "Count words, characters, sentences, and paragraphs, plus estimated reading and speaking time - live as you type. Free, private, and 100% client-side. No upload.",
+    searchQuery: "word counter online",
+  },
+  {
+    slug: "lorem-ipsum-generator",
+    name: "Lorem Ipsum Generator",
+    category: "Converters & Formatters",
+    shortDescription: "Generate placeholder text as plain paragraphs or HTML.",
+    seoTitle: "Lorem Ipsum Generator - Free Placeholder Text Online",
+    seoDescription:
+      "Generate lorem ipsum placeholder text by paragraph and sentence count, as plain text or HTML paragraphs, and copy it in one click. Free, fast, and client-side.",
+    searchQuery: "lorem ipsum generator",
   },
   {
     slug: "qr-code-generator",

@@ -4,8 +4,7 @@ import { AgencyCTA } from "@/components/AgencyCTA";
 import { tools } from "@/data/tools";
 import { siteConfig, absoluteUrl } from "@/lib/site";
 
-const description =
-  "Vibecode is a collection of 22 free developer tools that run 100% in your browser - no signup, no uploads, no tracking. Built and maintained by the software agency AlgoCrew.";
+const description = `Vibecode is a collection of ${tools.length} free developer tools that run 100% in your browser - no signup, no uploads, no tracking. Built and maintained by the software agency AlgoCrew.`;
 
 export const metadata: Metadata = {
   title: "About",
@@ -36,7 +35,7 @@ const principles = [
   },
   {
     title: "Free, forever",
-    body: "All 22 tools cost nothing to use. They're our way of giving back to the developer community.",
+    body: `All ${tools.length} tools cost nothing to use. They're our way of giving back to the developer community.`,
   },
 ];
 
@@ -45,13 +44,15 @@ export default function AboutPage() {
     <>
       <section aria-labelledby="about-heading" className="px-4 pt-20 pb-10 sm:px-6">
         <div className="mx-auto max-w-3xl">
-          <p className="premium-badge">About Vibecode</p>
-          <h1 id="about-heading" className="mt-6 text-4xl font-bold text-primary sm:text-5xl">
-            Useful tools,{" "}
-            <span className="gradient-text">zero strings attached</span>
+          <p className="badge">about vibecode</p>
+          <h1
+            id="about-heading"
+            className="mt-6 font-serif text-4xl tracking-tight text-primary sm:text-6xl"
+          >
+            Small tools, <em className="text-[var(--accent)]">honestly made.</em>
           </h1>
           <p className="mt-5 text-lg text-secondary">
-            Vibecode is a set of {tools.length} developer utilities - formatters,
+            Vibecode is a set of {tools.length}{" "}developer utilities - formatters,
             converters, generators, and AI helpers - that run completely in your browser.
             We built them because the web is full of &ldquo;free&rdquo; tools that upload
             your data, gate features behind signups, or bury you in ads. Ours don&apos;t.
@@ -61,13 +62,13 @@ export default function AboutPage() {
 
       <section aria-labelledby="principles-heading" className="px-4 py-8 sm:px-6">
         <div className="mx-auto max-w-3xl">
-          <h2 id="principles-heading" className="text-2xl font-bold text-primary">
+          <h2 id="principles-heading" className="font-serif text-2xl tracking-tight text-primary">
             What we stand for
           </h2>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2">
             {principles.map((p) => (
-              <li key={p.title} className="glass-card p-5">
-                <h3 className="font-semibold text-primary">{p.title}</h3>
+              <li key={p.title} className="panel p-5">
+                <h3 className="font-serif text-lg text-primary">{p.title}</h3>
                 <p className="mt-2 text-sm text-secondary">{p.body}</p>
               </li>
             ))}
@@ -77,7 +78,9 @@ export default function AboutPage() {
 
       <section aria-labelledby="about-team-heading" className="px-4 py-8 sm:px-6">
         <div className="mx-auto max-w-3xl">
-          <h2 id="about-team-heading" className="text-2xl font-bold text-primary">Who makes Vibecode?</h2>
+          <h2 id="about-team-heading" className="font-serif text-2xl tracking-tight text-primary">
+            Who makes Vibecode?
+          </h2>
           <p className="mt-4 text-secondary">
             Vibecode is built and maintained by{" "}
             <a href="https://algocrew.io" className="text-[var(--accent)] hover:underline">

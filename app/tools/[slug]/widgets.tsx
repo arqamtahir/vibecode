@@ -9,7 +9,7 @@ import type { ComponentType } from "react";
  */
 function loading() {
   return (
-    <div className="glass-card p-12 text-center text-secondary" aria-busy="true">
+    <div className="panel p-12 text-center text-secondary" aria-busy="true">
       Loading tool…
     </div>
   );
@@ -102,6 +102,34 @@ export const toolWidgets: Record<string, ComponentType> = {
   ),
   "qr-code-generator": dynamic(
     () => import("@/components/tools/QrCodeGenerator").then((m) => m.QrCodeGenerator),
+    { loading },
+  ),
+  "password-generator": dynamic(
+    () => import("@/components/tools/PasswordGenerator").then((m) => m.PasswordGenerator),
+    { loading },
+  ),
+  "diff-checker": dynamic(
+    () => import("@/components/tools/DiffChecker").then((m) => m.DiffChecker),
+    { loading },
+  ),
+  "hash-generator": dynamic(
+    () => import("@/components/tools/HashGenerator").then((m) => m.HashGenerator),
+    { loading },
+  ),
+  "color-converter": dynamic(
+    () => import("@/components/tools/ColorConverter").then((m) => m.ColorConverter),
+    { loading },
+  ),
+  "url-encoder-decoder": dynamic(
+    () => import("@/components/tools/UrlEncoderDecoder").then((m) => m.UrlEncoderDecoder),
+    { loading },
+  ),
+  "word-counter": dynamic(
+    () => import("@/components/tools/WordCounter").then((m) => m.WordCounter),
+    { loading },
+  ),
+  "lorem-ipsum-generator": dynamic(
+    () => import("@/components/tools/LoremIpsumGenerator").then((m) => m.LoremIpsumGenerator),
     { loading },
   ),
 };

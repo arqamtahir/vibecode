@@ -74,8 +74,8 @@ export default async function ToolPage({ params }: { params: Promise<Params> }) 
         <Widget />
       ) : (
         /* Placeholder body - tools whose widgets ship in a later phase. */
-        <div className="glass-card flex flex-col items-center gap-3 p-12 text-center">
-          <span className="premium-badge">Coming soon</span>
+        <div className="panel flex flex-col items-center gap-3 p-12 text-center">
+          <span className="badge">Coming soon</span>
           <p className="text-lg font-medium text-primary">
             The {tool.name} widget is on its way.
           </p>

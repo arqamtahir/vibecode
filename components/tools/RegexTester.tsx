@@ -156,7 +156,7 @@ export function RegexTester() {
             value={pattern}
             onChange={(e) => setPattern(e.target.value)}
             spellCheck={false}
-            className="mt-1.5 w-full rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1.5 w-full rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
         <fieldset>
@@ -186,13 +186,13 @@ export function RegexTester() {
           value={test}
           onChange={(e) => setTest(e.target.value)}
           spellCheck={false}
-          className="mt-1.5 h-32 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+          className="mt-1.5 h-32 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
 
       <div aria-live="assertive" role="alert">
         {state.error ? (
-          <p className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+          <p className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
             {state.error}
           </p>
         ) : null}
@@ -200,7 +200,7 @@ export function RegexTester() {
 
       <div>
         <h2 className="text-sm font-medium text-primary">Highlighted matches</h2>
-        <p className="mt-2 whitespace-pre-wrap break-words rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-secondary">
+        <p className="mt-2 whitespace-pre-wrap break-words rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-secondary">
           <Highlighted text={test} matches={state.matches} />
         </p>
       </div>
@@ -214,7 +214,7 @@ export function RegexTester() {
           {state.matches.length > 0 ? (
             <ol className="mt-2 space-y-2">
               {state.matches.slice(0, 200).map((m, i) => (
-                <li key={i} className="rounded-lg border border-[var(--glass-border)] p-2 text-sm">
+                <li key={i} className="rounded-lg border border-[var(--border-hairline)] p-2 text-sm">
                   <span className="font-mono text-primary">{m.match || "(empty match)"}</span>
                   <span className="text-muted"> at index {m.index}</span>
                   {m.groups.length > 0 ? (

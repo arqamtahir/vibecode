@@ -26,11 +26,11 @@ export function UuidGenerator() {
             max={MAX_UUIDS}
             value={count}
             onChange={(e) => setCount(clampCount(Number(e.target.value)))}
-            className="mt-1.5 w-28 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1.5 w-28 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-primary focus:border-[var(--accent)] focus:outline-none"
           />
           <p className="mt-1 text-xs text-muted">1–{MAX_UUIDS} version-4 UUIDs.</p>
         </div>
-        <button type="button" onClick={regenerate} className="glow-button">
+        <button type="button" onClick={regenerate} className="btn-primary">
           Generate
         </button>
         {uuids.length > 1 ? (
@@ -43,7 +43,7 @@ export function UuidGenerator() {
       </p>
 
       {uuids.length === 0 ? (
-        <p className="glass-card p-8 text-center text-secondary">
+        <p className="panel p-8 text-center text-secondary">
           Choose a count and select <span className="text-primary">Generate</span> to
           create version-4 UUIDs.
         </p>
@@ -53,7 +53,7 @@ export function UuidGenerator() {
         {uuids.map((id, i) => (
           <li
             key={`${id}-${i}`}
-            className="flex items-center justify-between gap-3 rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2"
+            className="flex items-center justify-between gap-3 rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2"
           >
             <code className="overflow-x-auto font-mono text-sm text-primary">{id}</code>
             <CopyButton value={id} label="Copy" />

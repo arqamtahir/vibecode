@@ -20,7 +20,7 @@ export function EnvExampleGenerator() {
 
   return (
     <div className="space-y-4">
-      <p className="rounded-lg border border-[var(--glass-border)] p-3 text-xs text-secondary">
+      <p className="rounded-lg border border-[var(--border-hairline)] p-3 text-xs text-secondary">
         <strong className="text-primary">Private:</strong> your <code>.env</code> may
         contain real secrets. Everything here is processed in your browser - nothing is
         ever uploaded or logged.
@@ -35,7 +35,7 @@ export function EnvExampleGenerator() {
             <button
               type="button"
               onClick={() => setInput(SAMPLE)}
-              className="rounded-full border border-[var(--glass-border)] px-3 py-1 text-sm text-secondary transition-colors hover:text-primary"
+              className="rounded-full border border-[var(--border-hairline)] px-3 py-1 text-sm text-secondary transition-colors hover:text-primary"
             >
               Load sample
             </button>
@@ -46,7 +46,7 @@ export function EnvExampleGenerator() {
             onChange={(e) => setInput(e.target.value)}
             spellCheck={false}
             placeholder={SAMPLE}
-            className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+            className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
 
@@ -63,14 +63,14 @@ export function EnvExampleGenerator() {
             value={output}
             spellCheck={false}
             placeholder="Sanitized output appears here - keys and comments kept, values blanked."
-            className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+            className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
       </div>
 
       <div aria-live="polite" role="status">
         {secretKeys.length > 0 ? (
-          <div className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+          <div className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
             <strong className="text-primary">Heads up:</strong> these keys look like secrets -
             make sure their real values never get committed:{" "}
             <span className="font-mono text-primary">{secretKeys.join(", ")}</span>

@@ -3,6 +3,8 @@
  * and Open Graph defaults consumed by the Metadata API, sitemap, and robots.
  */
 
+import { tools } from "@/data/tools";
+
 export const siteConfig = {
   name: "Vibecode",
   /** Used as the OG/Twitter site name and footer brand. */
@@ -12,8 +14,7 @@ export const siteConfig = {
     /\/$/,
     "",
   ),
-  description:
-    "22 free, privacy-first developer tools that run 100% in your browser - formatters, converters, generators, and AI utilities. No signup, no upload, no tracking.",
+  description: `${tools.length} free developer tools that run entirely in your browser - formatters, converters, and generators. No accounts, no uploads, no tracking.`,
   /**
    * Stable path to the build-generated social-share image (app/opengraph-image.tsx).
    * Referenced explicitly by pages that define their own `openGraph` object, since a

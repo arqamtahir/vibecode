@@ -50,7 +50,7 @@ function Field({
   placeholder?: string;
 }) {
   const cls =
-    "mt-1.5 w-full rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none";
+    "mt-1.5 w-full rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none";
   return (
     <div>
       <label htmlFor={id} className="block text-sm font-medium text-primary">
@@ -91,7 +91,7 @@ export function MetaTagPreviewer() {
             id="meta-card"
             value={input.twitterCard}
             onChange={(e) => set({ twitterCard: e.target.value as MetaInput["twitterCard"] })}
-            className="mt-1.5 w-full rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="mt-1.5 w-full rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           >
             <option value="summary_large_image">summary_large_image</option>
             <option value="summary">summary</option>
@@ -107,7 +107,7 @@ export function MetaTagPreviewer() {
           </div>
           <pre
             aria-labelledby="meta-tags-label"
-            className="mt-2 max-h-56 overflow-auto rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-xs text-primary"
+            className="mt-2 max-h-56 overflow-auto rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-xs text-primary"
           >
             <code>{tags}</code>
           </pre>
@@ -118,17 +118,19 @@ export function MetaTagPreviewer() {
         {/* Google */}
         <section aria-label="Google search result preview">
           <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Google</h3>
-          <div className="rounded-xl border border-[var(--glass-border)] p-4">
-            <p className="text-xs text-secondary">{host}</p>
-            <p className="mt-1 text-lg text-[var(--brand-blue)]">{truncate(title, 60)}</p>
-            <p className="mt-1 text-sm text-secondary">{truncate(description, 160)}</p>
+          {/* Facsimile of a real (white) Google result page, so the colors are
+              Google's own rather than theme tokens. */}
+          <div className="rounded-xl border border-[var(--border-hairline)] [background:#ffffff] p-4">
+            <p className="text-xs text-[#202124]">{host}</p>
+            <p className="mt-1 text-lg text-[#1a0dab]">{truncate(title, 60)}</p>
+            <p className="mt-1 text-sm text-[#4d5156]">{truncate(description, 160)}</p>
           </div>
         </section>
 
         {/* Twitter / X */}
         <section aria-label="Twitter card preview">
           <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Twitter / X</h3>
-          <div className="overflow-hidden rounded-xl border border-[var(--glass-border)]">
+          <div className="overflow-hidden rounded-xl border border-[var(--border-hairline)]">
             {input.twitterCard === "summary_large_image" ? (
               <div className="aspect-[1.91/1] w-full">
                 <PreviewImage key={`tw-${input.image}`} src={input.image} alt="Twitter card preview" />
@@ -145,7 +147,7 @@ export function MetaTagPreviewer() {
         {/* Facebook */}
         <section aria-label="Facebook card preview">
           <h3 className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted">Facebook</h3>
-          <div className="overflow-hidden rounded-xl border border-[var(--glass-border)]">
+          <div className="overflow-hidden rounded-xl border border-[var(--border-hairline)]">
             <div className="aspect-[1.91/1] w-full">
               <PreviewImage key={`fb-${input.image}`} src={input.image} alt="Facebook card preview" />
             </div>

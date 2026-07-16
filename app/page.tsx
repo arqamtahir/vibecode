@@ -5,6 +5,21 @@ import { JsonLd } from "@/components/JsonLd";
 import { tools } from "@/data/tools";
 import { siteConfig } from "@/lib/site";
 
+const principles = [
+  {
+    title: "Client-side only",
+    body: "Every tool runs in your browser. It can't leak what it never sends.",
+  },
+  {
+    title: "Offline after load",
+    body: "Tools keep working when the network doesn't. No round trips, no spinners.",
+  },
+  {
+    title: "No accounts",
+    body: "Paste, convert, copy, leave. Nothing to sign up for, nothing to cancel.",
+  },
+];
+
 export default function HomePage() {
   const jsonLd = {
     "@context": "https://schema.org",
@@ -20,53 +35,39 @@ export default function HomePage() {
       <JsonLd data={jsonLd} />
 
       {/* Hero */}
-      <section className="relative px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
-        {/* Subtle ambient glow — behind content, reduced-motion safe */}
-        <div
-          className="hero-glow pointer-events-none absolute inset-0 -z-10"
-          aria-hidden="true"
-        />
-
+      <section className="px-4 pt-24 pb-16 sm:px-6 sm:pt-32 sm:pb-20">
         <div className="mx-auto max-w-4xl">
-          {/* Eyebrow */}
-          <p className="text-sm font-medium tracking-widest text-[var(--accent)] uppercase">
-            By AlgoCrew
+          <p className="font-mono text-xs tracking-[0.08em] text-[var(--accent)]">
+            a studio toolbox by algocrew
           </p>
 
-          {/* Headline */}
-          <h1 className="mt-5 text-5xl font-bold leading-[1.08] tracking-tight text-primary sm:text-7xl">
-            Developer tools.<br />
-            <span className="gradient-text">Private by design.</span>
+          <h1 className="mt-6 font-serif text-5xl leading-[1.05] tracking-tight text-primary sm:text-7xl">
+            <em>Quiet</em> tools for serious developers.
           </h1>
 
-          {/* Sub */}
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-secondary sm:text-xl">
-            22 utilities — formatters, converters, generators — that run entirely
-            in your browser. No signup, no uploads, no telemetry.
+            {tools.length} formatters, converters, and generators that run
+            entirely in your browser. Nothing uploads. Nothing tracks. Nothing
+            costs.
           </p>
 
-          {/* Stats row */}
-          <dl className="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-            {[
-              { value: "22", label: "free tools" },
-              { value: "100%", label: "client-side" },
-              { value: "$0", label: "forever" },
-            ].map((s) => (
-              <div key={s.label} className="flex items-baseline gap-2">
-                <dt className="text-2xl font-semibold tracking-tight text-primary">{s.value}</dt>
-                <dd className="text-sm text-muted">{s.label}</dd>
-              </div>
-            ))}
-          </dl>
+          <p className="mt-8 font-mono text-sm text-muted">
+            {tools.length} tools · 0 servers · $0 forever
+          </p>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap gap-3">
-            <a href="#tools-heading" className="glow-button">
-              Browse all tools
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <a href="#tools-heading" className="btn-primary">
+              Browse the tools
             </a>
+            <span className="hidden font-mono text-sm text-muted md:inline">
+              or press{" "}
+              <kbd className="rounded border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-1.5 py-0.5 text-xs text-secondary">
+                ⌘K
+              </kbd>
+            </span>
             <Link
               href="/about"
-              className="inline-flex items-center rounded-full border border-[var(--glass-border)] px-6 py-3 text-sm font-medium text-secondary transition-colors hover:border-[var(--accent)] hover:text-primary"
+              className="font-medium text-secondary underline-offset-4 transition-colors hover:text-primary hover:underline md:hidden"
             >
               About Vibecode
             </Link>
@@ -75,6 +76,29 @@ export default function HomePage() {
       </section>
 
       <HomeToolGrid tools={tools} />
+
+      {/* Principles */}
+      <section aria-labelledby="principles-heading" className="px-4 py-16 sm:px-6">
+        <div className="mx-auto max-w-6xl border-t border-[var(--border-hairline)] pt-12">
+          <h2 id="principles-heading" className="sr-only">
+            How Vibecode works
+          </h2>
+          <dl className="grid gap-10 sm:grid-cols-3 sm:gap-8">
+            {principles.map((p, i) => (
+              <div key={p.title}>
+                <dt className="flex items-baseline gap-3">
+                  <span aria-hidden="true" className="font-mono text-xs text-[var(--accent)]">
+                    0{i + 1}
+                  </span>
+                  <span className="font-serif text-xl text-primary">{p.title}</span>
+                </dt>
+                <dd className="mt-3 text-sm leading-relaxed text-secondary">{p.body}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       <AgencyCTA />
     </>
   );

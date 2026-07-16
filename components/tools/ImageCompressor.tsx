@@ -141,7 +141,7 @@ export function ImageCompressor() {
         onKeyDown={(e) => e.key === "Enter" || e.key === " " ? fileRef.current?.click() : undefined}
         onDrop={handleDrop}
         onDragOver={(e) => e.preventDefault()}
-        className="flex cursor-pointer flex-col items-center gap-3 rounded-xl border-2 border-dashed border-[var(--glass-border)] p-10 text-center transition-colors hover:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
+        className="flex cursor-pointer flex-col items-center gap-3 rounded-xl border-2 border-dashed border-[var(--border-hairline)] p-10 text-center transition-colors hover:border-[var(--accent)] focus:outline-none focus:ring-2 focus:ring-[var(--accent)]"
       >
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"
           stroke="currentColor" strokeWidth="1.5" className="text-muted">
@@ -198,14 +198,14 @@ export function ImageCompressor() {
                 setMaxDim(e.target.value);
                 compress(original.file, quality, e.target.value);
               }}
-              className="mt-1.5 w-28 rounded-lg border border-[var(--glass-border)] [background:var(--bg-page)] px-3 py-2 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+              className="mt-1.5 w-28 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-3 py-2 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
             />
           </div>
         </div>
       )}
 
       {error && (
-        <p role="alert" aria-live="assertive" className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] px-4 py-3 text-sm text-secondary">
+        <p role="alert" aria-live="assertive" className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] px-4 py-3 text-sm text-secondary">
           {error}
         </p>
       )}
@@ -218,16 +218,16 @@ export function ImageCompressor() {
       {original && result && !loading && (
         <div className="space-y-4">
           <div className="grid gap-3 sm:grid-cols-3" aria-label="Compression results" aria-live="polite">
-            <div className="glass-card px-4 py-3 text-center">
+            <div className="panel px-4 py-3 text-center">
               <p className="text-xs text-muted">Original</p>
               <p className="font-mono text-lg font-semibold text-primary">{formatBytes(original.file.size)}</p>
             </div>
-            <div className="glass-card px-4 py-3 text-center">
+            <div className="panel px-4 py-3 text-center">
               <p className="text-xs text-muted">Compressed</p>
               <p className="font-mono text-lg font-semibold text-primary">{formatBytes(result.size)}</p>
               <p className="text-xs text-muted">{result.width}×{result.height}px</p>
             </div>
-            <div className="glass-card px-4 py-3 text-center">
+            <div className="panel px-4 py-3 text-center">
               <p className="text-xs text-muted">Saved</p>
               <p className={`font-mono text-lg font-semibold ${saving && saving > 0 ? "text-[var(--accent)]" : "text-primary"}`}>
                 {saving !== null ? `${saving > 0 ? saving : 0}%` : "-"}
@@ -239,18 +239,18 @@ export function ImageCompressor() {
             <div>
               <p className="mb-1.5 text-xs text-muted">Original</p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={original.url} alt="Original image preview" width={original.width || undefined} height={original.height || undefined} className="max-h-64 w-full rounded-xl border border-[var(--glass-border)] object-contain" />
+              <img src={original.url} alt="Original image preview" width={original.width || undefined} height={original.height || undefined} className="max-h-64 w-full rounded-xl border border-[var(--border-hairline)] object-contain" />
             </div>
             <div>
               <p className="mb-1.5 text-xs text-muted">Compressed</p>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={result.url} alt="Compressed image preview" width={result.width} height={result.height} className="max-h-64 w-full rounded-xl border border-[var(--glass-border)] object-contain" />
+              <img src={result.url} alt="Compressed image preview" width={result.width} height={result.height} className="max-h-64 w-full rounded-xl border border-[var(--border-hairline)] object-contain" />
             </div>
           </div>
 
           <button
             onClick={download}
-            className="glow-button"
+            className="btn-primary"
           >
             Download compressed image
           </button>

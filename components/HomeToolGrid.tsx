@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { ToolCard } from "@/components/ToolCard";
 import { categories, type Tool, type ToolCategory } from "@/data/tools";
+import { filterTools } from "@/lib/tools-search";
 
 type Filter = "All" | ToolCategory;
 
@@ -14,18 +15,13 @@ export function HomeToolGrid({ tools }: { tools: Tool[] }) {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("All");
 
-  const filtered = useMemo(() => {
-    const q = query.trim().toLowerCase();
-    return tools.filter((tool) => {
-      const matchesCategory = filter === "All" || tool.category === filter;
-      const matchesQuery =
-        q === "" ||
-        tool.name.toLowerCase().includes(q) ||
-        tool.shortDescription.toLowerCase().includes(q) ||
-        tool.searchQuery.toLowerCase().includes(q);
-      return matchesCategory && matchesQuery;
-    });
-  }, [tools, query, filter]);
+  const filtered = useMemo(
+    () =>
+      filterTools(tools, query).filter(
+        (tool) => filter === "All" || tool.category === filter,
+      ),
+    [tools, query, filter],
+  );
 
   const groups = useMemo(
     () =>
@@ -57,8 +53,8 @@ export function HomeToolGrid({ tools }: { tools: Tool[] }) {
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search 22 tools - e.g. JSON, regex, gradient…"
-              className="w-full rounded-xl border border-[var(--glass-border)] [background:var(--bg-elevated)] px-4 py-3 text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+              placeholder={`search ${tools.length} tools — json, regex, gradient…`}
+              className="w-full rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-4 py-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--border-strong)] focus:outline-none"
             />
           </div>
 
@@ -71,20 +67,20 @@ export function HomeToolGrid({ tools }: { tools: Tool[] }) {
                   type="button"
                   onClick={() => setFilter(f)}
                   aria-pressed={active}
-                  className={`rounded-full border px-4 py-1.5 text-sm transition-colors ${
+                  className={`rounded-md border px-3 py-1.5 font-mono text-xs transition-colors ${
                     active
-                      ? "border-[var(--accent)] text-primary [background:color-mix(in_srgb,var(--accent)_14%,transparent)]"
-                      : "border-[var(--glass-border)] text-secondary hover:text-primary"
+                      ? "border-[var(--accent)] text-[var(--accent)]"
+                      : "border-[var(--border-hairline)] text-secondary hover:text-primary"
                   }`}
                 >
-                  {f}
+                  {f.toLowerCase()}
                 </button>
               );
             })}
           </div>
         </div>
 
-        <p role="status" aria-live="polite" className="mt-4 text-sm text-muted">
+        <p role="status" aria-live="polite" className="mt-4 font-mono text-xs text-muted">
           {filtered.length} {filtered.length === 1 ? "tool" : "tools"} shown
         </p>
 
@@ -96,8 +92,13 @@ export function HomeToolGrid({ tools }: { tools: Tool[] }) {
           <div className="mt-6 space-y-12">
             {groups.map((group) => (
               <div key={group.category}>
-                <h3 className="text-lg font-semibold text-primary">{group.category}</h3>
-                <ul className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div className="flex items-baseline gap-4">
+                  <h3 className="shrink-0 font-mono text-xs uppercase tracking-[0.08em] text-muted">
+                    {group.category}
+                  </h3>
+                  <div aria-hidden="true" className="h-px w-full bg-[var(--border-hairline)]" />
+                </div>
+                <ul className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                   {group.items.map((tool) => (
                     <li key={tool.slug} className="h-full">
                       <ToolCard tool={tool} />

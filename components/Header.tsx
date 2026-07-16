@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CommandPalette } from "@/components/CommandPalette";
 import { agencyUrls } from "@/data/agency";
+import { tools } from "@/data/tools";
 
 const navLinks = [
   { href: "/", label: "Tools" },
@@ -11,7 +13,7 @@ const navLinks = [
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--glass-border)] [background:color-mix(in_srgb,var(--bg-page)_82%,transparent)] backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--border-hairline)] [background:color-mix(in_srgb,var(--bg-page)_92%,transparent)] backdrop-blur">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" aria-label="Vibecode home" className="shrink-0">
           <Logo />
@@ -33,6 +35,7 @@ export function Header() {
           >
             Hire AlgoCrew
           </a>
+          <CommandPalette tools={tools} />
           <ThemeToggle />
         </nav>
       </div>

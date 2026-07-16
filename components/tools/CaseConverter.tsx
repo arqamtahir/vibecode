@@ -19,7 +19,7 @@ export function CaseConverter() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Type or paste any text…"
-          className="mt-1.5 h-24 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-1.5 h-24 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
 
@@ -28,7 +28,7 @@ export function CaseConverter() {
           {results.map((r) => (
             <li
               key={r.key}
-              className="glass-card flex items-center justify-between gap-3 px-4 py-3"
+              className="panel flex items-center justify-between gap-3 px-4 py-3"
             >
               <div className="min-w-0">
                 <p className="text-xs text-muted">{r.label}</p>

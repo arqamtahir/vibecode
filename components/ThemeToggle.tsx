@@ -49,7 +49,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-label="Toggle colour theme"
       aria-pressed={isDark}
-      className="grid h-10 w-10 place-items-center rounded-full border border-[var(--glass-border)] text-secondary transition-colors hover:text-primary hover:border-[var(--accent)]"
+      className="grid h-10 w-10 place-items-center rounded-lg border border-[var(--border-hairline)] text-secondary transition-colors hover:text-primary hover:border-[var(--border-strong)]"
     >
       {/* Decorative icon; the button is labelled via aria-label. */}
       {isDark ? (

@@ -48,7 +48,7 @@ export function JsonToTypeScript() {
               id="jts-root"
               value={rootName}
               onChange={(e) => setRootName(e.target.value)}
-              className="w-28 rounded-lg border border-[var(--glass-border)] [background:var(--bg-elevated)] px-2 py-1.5 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+              className="w-28 rounded-lg border border-[var(--border-hairline)] [background:var(--bg-elevated)] px-2 py-1.5 text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
             />
           </div>
         </div>
@@ -58,23 +58,23 @@ export function JsonToTypeScript() {
           onChange={(e) => setInput(e.target.value)}
           spellCheck={false}
           placeholder={SAMPLE}
-          className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
         />
         <div className="mt-3 flex flex-wrap gap-2">
-          <button type="button" onClick={convert} className="glow-button">
+          <button type="button" onClick={convert} className="btn-primary">
             Generate TypeScript
           </button>
           <button
             type="button"
             onClick={() => setInput(SAMPLE)}
-            className="inline-flex items-center rounded-full border border-[var(--glass-border)] px-5 py-2.5 text-sm font-medium text-secondary transition-colors hover:text-primary"
+            className="inline-flex items-center rounded-full border border-[var(--border-hairline)] px-5 py-2.5 text-sm font-medium text-secondary transition-colors hover:text-primary"
           >
             Load sample
           </button>
         </div>
         <div aria-live="assertive" role="alert" className="mt-3">
           {error ? (
-            <p className="rounded-xl border border-[var(--brand-purple)] [background:color-mix(in_srgb,var(--brand-purple)_10%,transparent)] p-3 text-sm text-secondary">
+            <p className="rounded-xl border border-[var(--danger)] [background:color-mix(in_srgb,var(--danger)_10%,transparent)] p-3 text-sm text-secondary">
               {error}
             </p>
           ) : null}
@@ -94,7 +94,7 @@ export function JsonToTypeScript() {
           value={output}
           spellCheck={false}
           placeholder="export interface Root { … }"
-          className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
+          className="mt-2 h-72 w-full resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary placeholder:text-muted focus:border-[var(--accent)] focus:outline-none"
         />
       </div>
     </div>

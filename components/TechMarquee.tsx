@@ -12,7 +12,7 @@ export function TechMarquee() {
         {[...techStack, ...techStack].map((tech, i) => (
           <li
             key={`${tech}-${i}`}
-            className="whitespace-nowrap rounded-full border border-[var(--glass-border)] px-4 py-1.5 text-sm text-secondary"
+            className="whitespace-nowrap rounded-md border border-[var(--border-hairline)] px-3 py-1.5 font-mono text-xs text-secondary"
           >
             {tech}
           </li>

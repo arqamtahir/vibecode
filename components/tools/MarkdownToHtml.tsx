@@ -68,7 +68,7 @@ export function MarkdownToHtml() {
             value={markdown}
             onChange={(e) => setMarkdown(e.target.value)}
             spellCheck={false}
-            className="h-96 resize-y rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
+            className="h-96 resize-y rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-sm text-primary focus:border-[var(--accent)] focus:outline-none"
           />
         </div>
 
@@ -78,7 +78,7 @@ export function MarkdownToHtml() {
             <div
               role="tablist"
               aria-label="Output format"
-              className="flex gap-1 rounded-lg border border-[var(--glass-border)] p-0.5 [background:var(--bg-elevated)]"
+              className="flex gap-1 rounded-lg border border-[var(--border-hairline)] p-0.5 [background:var(--bg-elevated)]"
             >
               {(["preview", "html"] as const).map((t) => (
                 <button
@@ -88,7 +88,7 @@ export function MarkdownToHtml() {
                   onClick={() => setTab(t)}
                   className={`rounded-md px-3 py-1 text-xs font-medium capitalize transition-colors ${
                     tab === t
-                      ? "bg-[var(--accent)] text-white"
+                      ? "bg-[var(--accent)] text-[var(--accent-contrast)]"
                       : "text-secondary hover:text-primary"
                   }`}
                 >
@@ -100,7 +100,7 @@ export function MarkdownToHtml() {
               <CopyButton value={html} aria-label="Copy HTML" />
               <button
                 onClick={download}
-                className="rounded-lg border border-[var(--glass-border)] px-3 py-1.5 text-xs font-medium text-secondary hover:text-primary"
+                className="rounded-lg border border-[var(--border-hairline)] px-3 py-1.5 text-xs font-medium text-secondary hover:text-primary"
               >
                 Download
               </button>
@@ -111,7 +111,7 @@ export function MarkdownToHtml() {
             <div
               role="tabpanel"
               aria-label="Rendered HTML preview"
-              className="md-preview h-96 overflow-y-auto rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-4 text-primary"
+              className="md-preview h-96 overflow-y-auto rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-4 text-primary"
               // dangerouslySetInnerHTML is safe here because html is DOMPurify-sanitized
               dangerouslySetInnerHTML={{ __html: html }}
             />
@@ -119,7 +119,7 @@ export function MarkdownToHtml() {
             <pre
               role="tabpanel"
               aria-label="HTML source"
-              className="h-96 overflow-auto rounded-xl border border-[var(--glass-border)] [background:var(--bg-page)] p-3 font-mono text-xs text-primary whitespace-pre-wrap break-all"
+              className="h-96 overflow-auto rounded-xl border border-[var(--border-hairline)] [background:var(--bg-elevated)] p-3 font-mono text-xs text-primary whitespace-pre-wrap break-all"
             >
               {html}
             </pre>

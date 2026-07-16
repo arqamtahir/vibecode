@@ -1,0 +1,11 @@
+<svg width="560" height="140" viewBox="0 0 560 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Vibecode">
+  <title>Vibecode</title>
+  <!-- mark -->
+  <rect x="10" y="22" width="96" height="96" rx="22" fill="#c2410c"/>
+  <path d="M40 47 L59 70 L40 93" fill="none" stroke="#faf9f5" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="68" y="49" width="11" height="42" rx="3.5" fill="#faf9f5"/>
+  <!-- wordmark -->
+  <text x="130" y="88" font-family="'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace" font-size="58" font-weight="500" letter-spacing="-1">
+    <tspan fill="#78716c">~/</tspan><tspan fill="#1c1917">vibecode</tspan>
+  </text>
+</svg>
